@@ -14,18 +14,18 @@
     <title>Home | Login</title>
 </head>
 <body>
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-sm-5">
             <div class="card">
-                <h4 class="card-header text-center">Login</h4>
+                <h4 class="card-header text-center">HR Login</h4>
                 <div class="card-body">
-                    <form action="" method="post">
+                    <form action="app/hr_manager/login/authentication.php" method="post" autocomplete="off">
                         <div class="form-group">
-                            <input type="text" name="username" id="username" class="form-control">
+                            <input type="text" name="username" id="email_address" class="form-control" placeholder="Email Address" autofocus required>
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password" id="password" class="form-control">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
                         </div>
                         <button class="btn btn-success btn-block">Login</button>
                     </form>
