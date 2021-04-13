@@ -24,7 +24,10 @@ if(isset($_REQUEST['names'])){
     <title>Users | Register</title>
 </head>
 <body>
-<?php include_once "includes/side_navbar.php" ?>
+<?php
+    include_once "includes/top_navbar.php";
+    include_once "includes/side_navbar.php";
+?>
 <div class="main_content">
     <div class="container mt-3">
         <div class="row justify-content-center">
