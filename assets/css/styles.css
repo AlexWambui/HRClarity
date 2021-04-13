@@ -1,13 +1,66 @@
-header {
-    background: #343a40;
+.bg_orange{
+    background: #e98e46;
+    color: #e9ecef;
 }
-nav a{
+.bg_dark_cyan{
+    background: #008b8b;
+    color: #e9ecef;
+}
+.bg_purple{
+    background: #9471d9;
+    color: #e9ecef;
+}
+
+header nav{
     color: #efefef;
 }
-nav a:hover{
-    text-decoration: none;
-    color: #fd7e14;!important;
+.app_name{
+    font-size: 1.3rem;
+    text-transform: uppercase;
 }
-.nav_span{
-    color: #71f35b;
+
+/* side_bar */
+.side_nav_bar{
+    background: #343a40;
+    height: 100%;
+    padding-top: 10px;
+    position: fixed;
+    display:block;
+    width: 12%;
+}
+.side_nav_bar .nav_links{
+    list-style: none;
+    padding-left: 6px;
+}
+.side_nav_bar .nav_links .nav_items{
+    color: #efefef;
+    padding-left: 4px;
+    margin-top: 5px;
+    border-bottom: 1px solid #efefef;
+    width: 90%;
+}
+.side_nav_bar a{
+    text-decoration: none;
+    color: #efefef;
+    font-size: 1.1rem;
+    display:block;
+}
+.side_nav_bar a:hover{
+    color: #adff2f;
+}
+
+/*main_content*/
+.main_content{
+    width: 87%;
+    margin-left: 12.3%;
+}
+.dashboard_links .col{
+    border-radius: 4px;
+}
+.dashboard_links h1{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.dashboard_bordered{
+    border-top: 1px solid #343a40;
 }
