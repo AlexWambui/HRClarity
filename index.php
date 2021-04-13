@@ -1,3 +1,36 @@
+<?php
+require_once 'app/includes/db_connection.php';
+include_once 'app/includes/functions.php';
+if(isset($_REQUEST['password'])){
+    $email = $_REQUEST['email_address'];
+    $password = $_REQUEST['password'];
+
+    $sql_fetch_users = mysqli_prepare($db_conn, "SELECT * FROM users WHERE email_address = ? LIMIT 1");
+    mysqli_stmt_bind_param($sql_fetch_users, "s", $email);
+    mysqli_stmt_execute($sql_fetch_users);
+    $fetched_users = mysqli_stmt_get_result($sql_fetch_users);
+
+    //if email is found in the db
+    if(mysqli_num_rows($fetched_users) == 1){
+        $user = mysqli_fetch_assoc($fetched_users);
+        $hash = $user['password'];
+        if(password_verify($password, $hash)){
+            session_start();
+            $_SESSION['user_level'] = $user['user_level_id'];
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['first_name'] = $user['first_name'];
+            header('location: welcome_page.php');
+        }else{
+            setcookie("error", "wrong username or password", time()+2);
+            header('location: index.php');
+        }
+    }else{
+        setcookie("error", "wrong username or password", time()+2);
+        header('location: index.php');
+    }
+    mysqli_close($db_conn);
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,11 +51,12 @@
     <div class="row justify-content-center">
         <div class="col-sm-5">
             <div class="card">
-                <h4 class="card-header text-center">HR Login</h4>
+                <h4 class="card-header text-center">Login</h4>
                 <div class="card-body">
-                    <form action="app/hr_manager/login/authentication.php" method="post" autocomplete="off">
+                    <?= alerts() ?>
+                    <form action="index.php" method="post" autocomplete="off">
                         <div class="form-group">
-                            <input type="text" name="username" id="email_address" class="form-control" placeholder="Email Address" autofocus required>
+                            <input type="text" name="email_address" id="email_address" class="form-control" placeholder="Email Address" autofocus required>
                         </div>
                         <div class="form-group">
                             <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
