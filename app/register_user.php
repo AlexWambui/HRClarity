@@ -1,8 +1,13 @@
 <?php
-if(isset($_REQUEST['names'])){
+if(isset($_REQUEST['first_name'])){
     require_once "connect.php";
-    $names = $_REQUEST['names'];
-    $email = $_REQUEST['email'];
+    $first_name = $_REQUEST['first_name'];
+    $last_name = $_REQUEST['last_name'];
+    $dob = $_REQUEST['date_of_birth'];
+    $gender = $_REQUEST['gender'];
+    $id_number = $_REQUEST['id_number'];
+    $email = $_REQUEST['email_address'];
+    $phone = $_REQUEST['phone_number'];
     $password = $_REQUEST['password'];
     $password = password_hash($password, PASSWORD_BCRYPT);
 
@@ -75,10 +80,19 @@ if(isset($_REQUEST['names'])){
                                 <input type="number" name="id_number" id="id_number" class="form-control" placeholder="ID Number">
                             </div>
                             <div class="form-group">
-                                <input type="email" name="email_address" id="email_address" class="form-control" placeholder="Email Address">
-                            </div>
-                            <div class="form-group">
                                 <input type="text" name="phone_number" id="phone_number" class="form-control" placeholder="Phone Number">
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <input type="email" name="email_address" id="email_address" class="form-control" placeholder="Email Address">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <select name="department" id="department" class="custom-select">
