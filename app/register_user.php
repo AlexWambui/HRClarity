@@ -1,4 +1,5 @@
 <?php
+include_once 'includes/functions.php';
 if(isset($_REQUEST['first_name'])){
     require_once "connect.php";
     $first_name = $_REQUEST['first_name'];
@@ -95,19 +96,25 @@ if(isset($_REQUEST['first_name'])){
                                 </div>
                             </div>
                             <div class="form-group">
-                                <select name="department" id="department" class="custom-select">
-                                    <option value="none_selected">Select Department</option>
-                                    <option value="computer">Computer</option>
-                                    <option value="accounts">Accounts</option>
-                                    <option value="management">Management</option>
-                                </select>
+                                <div class="row">
+                                    <div class="col">
+                                        <select name="department" id="department" class="custom-select">
+                                            <option value="none_selected" disabled>Select Department</option>
+                                            <?= select_department() ?>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <select name="department" id="department" class="custom-select">
+                                            <option value="none_selected" disabled>Select Department</option>
+                                            <?= select_occupation() ?>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <select name="department" id="department" class="custom-select">
-                                    <option value="none_selected">Select User Level</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="hr">HR Manager</option>
-                                    <option value="employee">Employee</option>
+                                    <option value="none_selected" disabled>Select User Level</option>
+                                    <?= select_user_level() ?>
                                 </select>
                             </div>
                             <button class="btn btn-success btn-block">Register</button>
