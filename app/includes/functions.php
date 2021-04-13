@@ -25,7 +25,7 @@ function alerts(){
     <?php endif;
 }
 
-function select_departments(): string {
+function select_department(): string {
     global $db_conn;
     $output = '';
     $sql = "SELECT * FROM departments";
@@ -36,7 +36,7 @@ function select_departments(): string {
     return $output;
 }
 
-function select_occupations(): string {
+function select_occupation(): string {
     global $db_conn;
     $output = '';
     $sql = "SELECT * FROM occupations";
@@ -47,7 +47,7 @@ function select_occupations(): string {
     return $output;
 }
 
-function select_user_levels(): string{
+function select_user_level(): string{
     global $db_conn;
     $output = '';
     $sql = "SELECT * FROM user_levels";
