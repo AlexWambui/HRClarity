@@ -1,4 +1,4 @@
-<header class="navbar-expand-md bg-dark navbar-dark pl-2 pr-2">
+<header class="top_nav navbar-expand-md bg-dark navbar-dark pl-2 pr-2">
     <nav class="d-flex justify-content-between align-items-center">
         <div class="logo">
             <h4 class="app_name">HRMS</h4>

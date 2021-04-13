@@ -11,8 +11,12 @@
     color: #e9ecef;
 }
 
-header nav{
+/*top_navbar*/
+.top_nav{
     color: #efefef;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 .app_name{
     font-size: 1.3rem;
