@@ -19,7 +19,7 @@ if(isset($_REQUEST['password'])){
             $_SESSION['user_level'] = $user['user_level_id'];
             $_SESSION['id'] = $user['id'];
             $_SESSION['first_name'] = $user['first_name'];
-            header('location: welcome_page.php');
+            header('location: app/welcome_page.php');
         }else{
             setcookie("error", "wrong username or password", time()+2);
             header('location: index.php');

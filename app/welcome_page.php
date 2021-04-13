@@ -1,3 +1,8 @@
+<?php
+    include_once "includes/functions.php";
+    protect_page();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
