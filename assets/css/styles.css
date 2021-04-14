@@ -30,18 +30,11 @@
     padding-top: 10px;
     position: fixed;
     display:block;
-    width: 12%;
+    width: 14%;
 }
 .side_nav_bar .nav_links{
     list-style: none;
     padding-left: 6px;
-}
-.side_nav_bar .nav_links .nav_items{
-    color: #efefef;
-    padding-left: 4px;
-    margin-top: 5px;
-    border-bottom: 1px solid #efefef;
-    width: 90%;
 }
 .side_nav_bar a{
     text-decoration: none;
@@ -52,11 +45,53 @@
 .side_nav_bar a:hover{
     color: #adff2f;
 }
+.side_nav_bar .nav_links .nav_items{
+    width: 90%;
+}
+.side_nav_bar .nav_links .nav_items,
+.side_nav_dropdown{
+    color: #efefef;
+    padding-left: 4px;
+    margin-top: 5px;
+    border-bottom: 1px solid #efefef;
+}
+
+.side_nav_dropdown{
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+}
+/*on_mouse_over*/
+.side_nav_dropdown:hover{
+    color: #f1f1f1;
+}
+.side_nav_dropdown:focus{
+    outline: none;
+    border: none;
+}
+/* Add an active class to the active dropdown button */
+.active {
+    color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.side_nav_dropdown_container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+
+
+
 
 /*main_content*/
 .main_content{
-    width: 87%;
-    margin-left: 12.3%;
+    width: 85%;
+    margin-left: 14.3%;
 }
 .dashboard_links .col{
     border-radius: 4px;
