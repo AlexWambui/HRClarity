@@ -49,7 +49,7 @@ if(isset($_REQUEST["id"])){
                             </div>
                             <div class="form-group">
                                 <label for="date_of_birth">Date of Birth</label>
-                                <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" min="1960-01-01" max="2000-01-01" value="<? $user['date_of_birth'] ?>">
+                                <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" min="1960-01-01" max="2000-01-01" value="<?= $user['date_of_birth'] ?>">
                             </div>
                             <div class="form-group">
                                 <div class="row">
@@ -71,18 +71,18 @@ if(isset($_REQUEST["id"])){
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="number" name="id_number" id="id_number" class="form-control" placeholder="ID Number" value="<? $user['id_number'] ?>">
+                                <input type="number" name="id_number" id="id_number" class="form-control" placeholder="ID Number" value="<?= $user['id_number'] ?>">
                             </div>
 
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
-                                        <input type="email" name="email_address" id="email_address" class="form-control" placeholder="Email Address" value="<? $user['email_address'] ?>">
+                                        <input type="email" name="email_address" id="email_address" class="form-control" placeholder="Email Address" value="<?= $user['email_address'] ?>">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
-                                        <input type="text" name="phone_number" id="phone_number" class="form-control" placeholder="Phone Number" value="<? $user['phone_number'] ?>">
+                                        <input type="text" name="phone_number" id="phone_number" class="form-control" placeholder="Phone Number" value="<?= $user['phone_number'] ?>">
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +90,7 @@ if(isset($_REQUEST["id"])){
                                 <div class="row">
                                     <div class="col">
                                         <select name="department" id="department" class="custom-select">
-                                            <option value="<?= $user['department_id'] ?>"><? $user['department_id'] ?></option>
+                                            <option value="<?= $user['department_id'] ?>"><?= $user['department_id'] ?></option>
                                             <?= select_department() ?>
                                         </select>
                                     </div>
