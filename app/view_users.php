@@ -46,8 +46,8 @@ include 'includes/side_navbar.php';
                             <td> <?= $user["title"] ?> </td>
                             <td> <?= $user["basic_salary"] + $user["house_allowance"] + $user["medical_allowance"] ?></td>
                             <td>
-                                <a href="update_user.php?id=<?= $user["id"]?>"><span class="text-success table_icons icon-pencil"></span></a> |
-                                <a href="archive_user.php?id=<?= $user["id"]?>"><span class="text-warning table_icons icon-archive"></span></a>
+                                <a href="update_user.php?id=<?= $user['id']?>"><span class="text-success table_icons icon-pencil"></span></a> |
+                                <a href="archive_user.php?id=<?= $user['id']?>"><span class="text-warning table_icons icon-archive"></span></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
