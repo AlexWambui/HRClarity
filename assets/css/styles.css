@@ -42,11 +42,12 @@
     font-size: 1.1rem;
     display:block;
 }
-.side_nav_bar a:hover{
-    color: #adff2f;
-}
 .side_nav_bar .nav_links .nav_items{
     width: 90%;
+}
+.side_nav_bar a:hover,
+.side_nav_dropdown:hover{
+    color: #adff2f;
 }
 .side_nav_bar .nav_links .nav_items,
 .side_nav_dropdown{
@@ -55,7 +56,6 @@
     margin-top: 5px;
     border-bottom: 1px solid #efefef;
 }
-
 .side_nav_dropdown{
     text-decoration: none;
     border: none;
@@ -63,15 +63,10 @@
     cursor: pointer;
     outline: none;
 }
-/*on_mouse_over*/
-.side_nav_dropdown:hover{
-    color: #f1f1f1;
-}
 .side_nav_dropdown:focus{
     outline: none;
     border: none;
 }
-/* Add an active class to the active dropdown button */
 .active {
     color: white;
 }
@@ -82,10 +77,6 @@
     background-color: #262626;
     padding-left: 8px;
 }
-
-/* Optional: Style the caret down icon */
-
-
 
 
 /*main_content*/
