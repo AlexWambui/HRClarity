@@ -3,8 +3,8 @@ include_once 'includes/functions.php';
 require_once 'includes/db_connection.php';
 protect_page();
 $sql_fetch_users = "SELECT * FROM users 
-    LEFT JOIN departments ON departments.id = users.department_id
-    LEFT JOIN occupations ON occupations.id = users.occupation_id";
+    LEFT JOIN departments ON users.department_id = departments.id
+    LEFT JOIN occupations ON users.occupation_id = occupations.id";
 $fetched_users = mysqli_query($db_conn, $sql_fetch_users) or die( mysqli_error($db_conn) );// executing the query
 $users = mysqli_fetch_all($fetched_users, 1);
 mysqli_close($db_conn);
@@ -28,6 +28,7 @@ include 'includes/side_navbar.php';
                 <table id="example" class="table table-hover">
                     <thead>
                     <tr>
+                        <th>id</th>
                         <th>Profile Picture</th>
                         <th>Names</th>
                         <th>Department</th>
@@ -40,6 +41,7 @@ include 'includes/side_navbar.php';
                     <tbody>
                     <?php foreach ($users as $user): ?>
                         <tr>
+                            <td> <?= $user['id'] ?></td>
                             <td> <img src="<?=$user['profile_picture']?>" style="width: 35px; height: 35px; border-radius: 50%;" alt="profile"> </td>
                             <td> <?= $user["first_name"].' '.$user["last_name"] ?> </td>
                             <td> <?= $user["dpt_name"] ?> </td>
