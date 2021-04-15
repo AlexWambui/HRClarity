@@ -41,5 +41,12 @@ mysqli_close($db_conn);
         </div>
     </div>
 </div>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
 </body>
 </html>
