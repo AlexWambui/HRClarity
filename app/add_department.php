@@ -3,7 +3,7 @@ include_once 'includes/functions.php';
 require_once "includes/db_connection.php";
 protect_page();
 if(isset($_REQUEST['dpt_name'])){
-    $dpt_name = $_REQUEST['department_name'];
+    $dpt_name = $_REQUEST['dpt_name'];
 
     $sql_add_department = mysqli_prepare($db_conn, "INSERT INTO departments (`dpt_name`) VALUES (?)");
     mysqli_stmt_bind_param($sql_add_department, "s", $dpt_name);
