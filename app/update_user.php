@@ -4,7 +4,7 @@ include_once 'includes/db_connection.php';
 protect_page();
 if(isset($_REQUEST["id"])){
     $id = $_REQUEST["id"];
-    $sql_fetch_user = "SELECT * FROM users WHERE id = 5";
+    $sql_fetch_user = "SELECT * FROM users WHERE id = $id";
     $fetched_user = mysqli_query($db_conn, $sql_fetch_user) or die(mysqli_error($db_conn));
     if(mysqli_num_rows($fetched_user) == 0){
         header('location: view_users.php');
