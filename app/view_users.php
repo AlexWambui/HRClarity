@@ -2,9 +2,7 @@
 include_once 'includes/functions.php';
 require_once 'includes/db_connection.php';
 protect_page();
-$sql_fetch_users = "SELECT * FROM users 
-    LEFT JOIN departments ON users.department_id = departments.id
-    LEFT JOIN occupations ON users.occupation_id = occupations.id";
+$sql_fetch_users = "SELECT users.id as user_id, users.first_name, users.last_name, users.gender, users.department_id, departments.dpt_name, occupations.title, occupations.basic_salary, occupations.house_allowance, occupations.medical_allowance FROM users JOIN departments ON users.department_id = departments.id JOIN occupations ON users.occupation_id = occupations.id JOIN user_levels ON users.user_level_id = user_levels.id";
 $fetched_users = mysqli_query($db_conn, $sql_fetch_users) or die( mysqli_error($db_conn) );// executing the query
 $users = mysqli_fetch_all($fetched_users, 1);
 mysqli_close($db_conn);
@@ -29,7 +27,6 @@ include 'includes/side_navbar.php';
                     <thead>
                     <tr>
                         <th>id</th>
-                        <th>Profile Picture</th>
                         <th>Names</th>
                         <th>Department</th>
                         <th>Occupation</th>
@@ -41,15 +38,14 @@ include 'includes/side_navbar.php';
                     <tbody>
                     <?php foreach ($users as $user): ?>
                         <tr>
-                            <td> <?= $user['id'] ?></td>
-                            <td> <img src="<?=$user['profile_picture']?>" style="width: 35px; height: 35px; border-radius: 50%;" alt="profile"> </td>
+                            <td> <?= $user['user_id'] ?></td>
                             <td> <?= $user["first_name"].' '.$user["last_name"] ?> </td>
                             <td> <?= $user["dpt_name"] ?> </td>
                             <td> <?= $user["title"] ?> </td>
                             <td> <?= $user["basic_salary"] + $user["house_allowance"] + $user["medical_allowance"] ?></td>
                             <td>
-                                <a href="update_user.php?id=<?= $user['id']?>"><span class="text-success table_icons icon-pencil"></span></a> |
-                                <a href="archive_user.php?id=<?= $user['id']?>"><span class="text-warning table_icons icon-archive"></span></a>
+                                <a href="update_user.php?id=<?= $user['user_id']?>"><span class="text-success table_icons icon-pencil"></span></a> |
+                                <a href="archive_user.php?id=<?= $user['user_id']?>"><span class="text-warning table_icons icon-archive"></span></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
