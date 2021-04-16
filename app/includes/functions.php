@@ -30,8 +30,21 @@ function select_department(): string {
     $output = '';
     $sql = "SELECT * FROM departments";
     $result = mysqli_query($db_conn, $sql);
+
     while ($department = mysqli_fetch_array($result)){
         $output .='<option value=" '.$department["id"].' ">'.$department["dpt_name"].'</option>';
+    }
+    return $output;
+}
+
+function update_department($id): string {
+    global $db_conn;
+    $output = '';
+    $sql = "SELECT * FROM departments";
+    $result = mysqli_query($db_conn, $sql);
+    while ($department = mysqli_fetch_array($result)){
+        $selected = $id == $department['id'] ? 'selected': '';
+        $output .='<option '.$selected.' value=" '.$department["id"].' ">'.$department["dpt_name"].'</option>';
     }
     return $output;
 }
