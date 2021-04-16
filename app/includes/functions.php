@@ -30,9 +30,8 @@ function select_department(): string {
     $output = '';
     $sql = "SELECT * FROM departments";
     $result = mysqli_query($db_conn, $sql);
-
     while ($department = mysqli_fetch_array($result)){
-        $output .='<option value=" '.$department["id"].' ">'.$department["dpt_name"].'</option>';
+        $output .='<option value="'.$department["id"].'">'.$department["dpt_name"].'</option>';
     }
     return $output;
 }
