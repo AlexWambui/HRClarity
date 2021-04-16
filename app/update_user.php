@@ -4,10 +4,10 @@ include_once 'includes/db_connection.php';
 protect_page();
 if(isset($_REQUEST["id"])){
     $id = $_REQUEST["id"];
-    $sql_fetch_user = "SELECT * FROM users WHERE id = $id";
+    $sql_fetch_user = "SELECT * FROM users WHERE id = 5";
     $fetched_user = mysqli_query($db_conn, $sql_fetch_user) or die(mysqli_error($db_conn));
     if(mysqli_num_rows($fetched_user) == 0){
-        header('location: read.php');
+        header('location: view_users.php');
     }
     $user = mysqli_fetch_assoc($fetched_user);
 }
@@ -28,11 +28,15 @@ if(isset($_REQUEST["id"])){
         <div class="row justify-content-center">
             <div class="col-sm-9">
                 <div class="card">
-                    <h4 class="card-header text-center">Update User</h4>
+                    <div class="card-header text-center">
+                        <img src="<?= $user['profile_picture'] ?>" width="30" height="30" alt="">
+                    </div>
                     <div class="card-body">
                         <?= alerts() ?>
+
                         <form action="register_user.php" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="id" id="id" value="<?= $user['id'] ?>">
+
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -58,13 +62,13 @@ if(isset($_REQUEST["id"])){
                                     </div>
                                     <div class="col-3">
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" class="custom-control-input" id="male" name="gender" value="male">
+                                            <input type="radio" class="custom-control-input" id="male" name="gender" value="male" <?= $user['gender'] == 'male' ? 'checked':'' ?>>
                                             <label class="custom-control-label" for="male">Male</label>
                                         </div>
                                     </div>
                                     <div class="col-3">
                                         <div class="custom-control custom-radio custom-control-inline">
-                                            <input type="radio" class="custom-control-input" id="female" name="gender" value="female">
+                                            <input type="radio" class="custom-control-input" id="female" name="gender" value="female" <?= $user['gender'] == 'female' ? 'checked':'' ?>>
                                             <label class="custom-control-label" for="female">Female</label>
                                         </div>
                                     </div>
@@ -90,8 +94,7 @@ if(isset($_REQUEST["id"])){
                                 <div class="row">
                                     <div class="col">
                                         <select name="department" id="department" class="custom-select">
-                                            <option value="<?= $user['department_id'] ?>"><?= $user['department_id'] ?></option>
-                                            <?= select_department() ?>
+                                            <?= update_department($user['department_id']) ?>
                                         </select>
                                     </div>
                                     <div class="col">
@@ -119,6 +122,7 @@ if(isset($_REQUEST["id"])){
             </div>
         </div>
     </div>
+
 </div>
 </body>
 </html>
