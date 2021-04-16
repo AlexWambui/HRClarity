@@ -17,7 +17,7 @@ if(isset($_REQUEST['first_name'])){
     $password = password_hash($password, PASSWORD_BCRYPT);
 
     $target_dir = "../assets/uploads/profile_pictures/";
-    $target_file = $target_dir.rand(10000000, 10000000).basename($_FILES["profile_picture"]["name"]);
+    $target_file = $target_dir.rand(1000000, 10000000).basename($_FILES["profile_picture"]["name"]);
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
     $allowed_types = ["png", "jpeg", "jpg"];
     $allowed = in_array($imageFileType, $allowed_types);
@@ -29,7 +29,7 @@ if(isset($_REQUEST['first_name'])){
 
     $sql_register_user = mysqli_prepare($db_conn, "INSERT INTO users (`first_name`, `last_name`, `gender`, `date_of_birth`, `id_number`, `email_address`, `phone_number`, `department_id`, `occupation_id`, `user_level_id`, `profile_picture`, `password`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     mysqli_stmt_bind_param($sql_register_user, "ssssissiiiss", $first_name, $last_name, $gender, $dob, $id_number, $email, $phone, $department, $occupation, $user_level, $target_file, $password);
-    mysqli_stmt_execute($sql_register_user);
+    mysqli_stmt_execute($sql_register_user) or die(mysqli_stmt_error($sql_register_user));
     mysqli_close($db_conn);
     setcookie('success', 'user has been registered', time()+2);
     header('location: register_user.php');
