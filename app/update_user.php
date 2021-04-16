@@ -111,10 +111,10 @@ if(isset($_REQUEST["id"])){
                                     <?= select_user_level() ?>
                                 </select>
                             </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="profile_picture" accept="image/*" name="profile_picture">
-                                <label class="custom-file-label" for="profile_picture">Profile picture</label>
-                            </div>
+<!--                            <div class="custom-file">-->
+<!--                                <input type="file" class="custom-file-input" id="profile_picture" accept="image/*" name="profile_picture">-->
+<!--                                <label class="custom-file-label" for="profile_picture">Profile picture</label>-->
+<!--                            </div>-->
                             <button class="btn btn-success btn-block mt-1">Register</button>
                         </form>
                     </div>

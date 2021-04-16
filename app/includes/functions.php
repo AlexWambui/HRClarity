@@ -59,6 +59,18 @@ function select_occupation(): string {
     return $output;
 }
 
+function update_occupation($id): string {
+    global $db_conn;
+    $output = '';
+    $sql = "SELECT * FROM occupations";
+    $result = mysqli_query($db_conn, $sql);
+    while ($occupation = mysqli_fetch_array($result)){
+        $selected = $id == $occupation['id'] ? 'selected': '';
+        $output .='<option '.$selected.' value=" '.$occupation["id"].' ">'.$occupation["title"].'</option>';
+    }
+    return $output;
+}
+
 function select_user_level(): string{
     global $db_conn;
     $output = '';
@@ -66,6 +78,18 @@ function select_user_level(): string{
     $result = mysqli_query($db_conn, $sql);
     while ($user_level = mysqli_fetch_assoc($result)){
         $output .= '<option value=" '.$user_level["id"].' ">'.$user_level["title"].'</option>';
+    }
+    return $output;
+}
+
+function update_user_level($id): string {
+    global $db_conn;
+    $output = '';
+    $sql = "SELECT * FROM user_levels";
+    $result = mysqli_query($db_conn, $sql);
+    while ($user_level = mysqli_fetch_array($result)){
+        $selected = $id == $user_level['id'] ? 'selected': '';
+        $output .='<option '.$selected.' value=" '.$user_level["id"].' ">'.$user_level["title"].'</option>';
     }
     return $output;
 }
