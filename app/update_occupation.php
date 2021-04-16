@@ -2,15 +2,17 @@
 include_once 'includes/functions.php';
 include_once 'includes/db_connection.php';
 protect_page();
+
 if(isset($_REQUEST["id"])){
     $id = $_REQUEST["id"];
     $sql_fetch_occupation = "SELECT * FROM occupations WHERE id = $id";
     $fetched_occupation = mysqli_query($db_conn, $sql_fetch_occupation) or die(mysqli_error($db_conn));
     if(mysqli_num_rows($fetched_occupation) == 0){
-        header('location: view_occupations.php');
+        header('location: occupations.php');
     }
     $occupation = mysqli_fetch_assoc($fetched_occupation);
 }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,7 +38,7 @@ include_once 'includes/side_navbar.php';
                     </div>
                     <div class="card-body">
                         <?= alerts() ?>
-                        <form action="occupations.php" method="post">
+                        <form action="update_occupation_code.php" method="post">
                             <input type="hidden" name="id" id="id" value="<?=$occupation['id']?>">
                             <div class="form-group">
                                 <input type="text" name="title" id="title" class="form-control" placeholder="Occupation Title" value="<?=$occupation['title']?>" required>
@@ -59,7 +61,7 @@ include_once 'includes/side_navbar.php';
                                     <?=update_department($occupation['id'])?>
                                 </select>
                             </div>
-                            <button class="btn btn-success btn-block">Save Updates</button>
+                            <button type="submit" name="update_occupation" class="btn btn-success btn-block">Save Updates</button>
                         </form>
                     </div>
                 </div>
