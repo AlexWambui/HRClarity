@@ -100,7 +100,7 @@ if(isset($_REQUEST["id"])){
                                     <div class="col">
                                         <select name="occupation" id="occupation" class="custom-select">
                                             <option value="none_selected">Select Occupation</option>
-                                            <?= select_occupation() ?>
+                                            <?= update_occupation($user['occupation_id']) ?>
                                         </select>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@ if(isset($_REQUEST["id"])){
                             <div class="form-group">
                                 <select name="user_level" id="user_level" class="custom-select">
                                     <option value="none_selected">Select User Level</option>
-                                    <?= select_user_level() ?>
+                                    <?= update_user_level($user['user_level_id']) ?>
                                 </select>
                             </div>
 <!--                            <div class="custom-file">-->
