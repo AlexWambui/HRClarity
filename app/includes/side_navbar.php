@@ -19,7 +19,7 @@
             <li class="nav_items">
                 <button class="dropdown-btn side_nav_dropdown"><span class="side_nav_icons icon-work"></span> Occupations <span class="icon-caret-down"></span></button>
                 <div class="dropdown-container side_nav_dropdown_container">
-                    <a href="view_occupations.php">View occupations</a>
+                    <a href="occupations.php">View occupations</a>
                     <a href="add_occupation.php">Add occupation</a>
                 </div>
             </li>
