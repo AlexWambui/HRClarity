@@ -24,19 +24,18 @@ if(isset($_REQUEST["id"])){
     include_once 'includes/side_navbar.php';
 ?>
 <div class="main_content">
-    <div class="container">
+    <div class="container mt-3">
         <div class="row justify-content-center">
             <div class="col-sm-9">
                 <div class="card">
                     <div class="card-header text-center">
-                        <img src="<?= $user['profile_picture'] ?>" width="30" height="30" alt="">
+<!--                        <img src="--><?//= $user['profile_picture'] ?><!--" width="30" height="30" alt="">-->
+                        <h4>Update User Details</h4>
                     </div>
                     <div class="card-body">
                         <?= alerts() ?>
-
-                        <form action="register_user.php" method="post" enctype="multipart/form-data">
+                        <form action="update_user_code.php" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="id" id="id" value="<?= $user['id'] ?>">
-
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
@@ -74,18 +73,22 @@ if(isset($_REQUEST["id"])){
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <input type="number" name="id_number" id="id_number" class="form-control" placeholder="ID Number" value="<?= $user['id_number'] ?>">
-                            </div>
-
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
+                                        <label for="id_number">ID Number</label>
+                                        <input type="number" name="id_number" id="id_number" class="form-control" placeholder="ID Number" value="<?= $user['id_number'] ?>">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="email_address">Email Address</label>
                                         <input type="email" name="email_address" id="email_address" class="form-control" placeholder="Email Address" value="<?= $user['email_address'] ?>">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
+                                        <label for="phone_number">Phone Number</label>
                                         <input type="text" name="phone_number" id="phone_number" class="form-control" placeholder="Phone Number" value="<?= $user['phone_number'] ?>">
                                     </div>
                                 </div>
@@ -93,23 +96,28 @@ if(isset($_REQUEST["id"])){
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col">
+                                        <label for="department">Department</label>
                                         <select name="department" id="department" class="custom-select">
                                             <?= update_department($user['department_id']) ?>
                                         </select>
                                     </div>
                                     <div class="col">
+                                        <label for="occupation">Occupation</label>
                                         <select name="occupation" id="occupation" class="custom-select">
                                             <option value="none_selected">Select Occupation</option>
                                             <?= update_occupation($user['occupation_id']) ?>
                                         </select>
                                     </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="user_level">User Level</label>
+                                            <select name="user_level" id="user_level" class="custom-select">
+                                                <option value="none_selected">Select User Level</option>
+                                                <?= update_user_level($user['user_level_id']) ?>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <select name="user_level" id="user_level" class="custom-select">
-                                    <option value="none_selected">Select User Level</option>
-                                    <?= update_user_level($user['user_level_id']) ?>
-                                </select>
                             </div>
 <!--                            <div class="custom-file">-->
 <!--                                <input type="file" class="custom-file-input" id="profile_picture" accept="image/*" name="profile_picture">-->
