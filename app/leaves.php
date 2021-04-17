@@ -16,10 +16,19 @@ if(isset($_REQUEST['from_date'])){
     setcookie('success', "leave sent", time()+2);
     header('location: leaves.php');
 }
-$sql_fetch_leaves = "SELECT * FROM leaves";
-$execute_sql_fetch_leaves = mysqli_query($db_conn, $sql_fetch_leaves) or die(mysqli_error($db_conn));
-$fetched_leaves = mysqli_fetch_all($execute_sql_fetch_leaves, 1);
-mysqli_close($db_conn);
+if($_SESSION['id'] == 2) {
+    $sql_fetch_leaves = "SELECT * FROM leaves LEFT JOIN users ON leaves.user_id = users.id";
+    $execute_sql_fetch_leaves = mysqli_query($db_conn, $sql_fetch_leaves) or die(mysqli_error($db_conn));
+    $fetched_leaves = mysqli_fetch_all($execute_sql_fetch_leaves, 1);
+    mysqli_close($db_conn);
+}
+if($_SESSION['id'] == 1 or $_SESSION['id'] == 3){
+    $id = $_SESSION['id'];
+    $sql_fetch_leaves = "SELECT * FROM leaves LEFT JOIN users ON leaves.user_id = users.id WHERE user_id = $id ";
+    $execute_sql_fetch_leaves = mysqli_query($db_conn, $sql_fetch_leaves) or die(mysqli_error($db_conn));
+    $fetched_leaves = mysqli_fetch_all($execute_sql_fetch_leaves, 1);
+    mysqli_close($db_conn);
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -35,24 +44,39 @@ include_once 'includes/side_navbar.php';
 <div class="main_content">
     <div class="container pt-3">
         <div class="row">
-            <div class="col-lg-8">
-                <table id="example" class="table table-hover">
+            <div class="col-lg-8 <?php if($_SESSION['id'] == 2) echo 'col-lg-12' ?>">
+                <table id="example" class="table table-striped">
                     <thead>
                     <tr>
+                        <?php if($_SESSION['id'] == 2): ?>
+                        <th>Names</th>
+                        <?php endif; ?>
                         <th>Type</th>
                         <th>From</th>
                         <th>To</th>
                         <th>Status</th>
+                        <?php if($_SESSION['id'] == 2): ?>
+                        <th>Approval</th>
+                        <?php endif; ?>
 <!--                        <th>Action</th>-->
                     </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($fetched_leaves as $leave): ?>
                         <tr>
+                            <?php if($_SESSION['id'] == 2): ?>
+                            <td><?= $leave['first_name'].' '.$leave['last_name'] ?></td>
+                            <?php endif; ?>
                             <td> <?= $leave["leave_type"] ?></td>
                             <td> <?= $leave["from_date"] ?></td>
                             <td> <?= $leave["to_date"] ?></td>
                             <td class="text-success <?php if ($leave['status'] == 'pending') echo 'text-danger' ?>"> <?= $leave["status"] ?></td>
+                            <?php if($_SESSION['id'] == 2): ?>
+                            <td>
+                                <a href="leave_approval.php?id=<?= $leave['id'] ?>" class="text-success"><button class="btn btn-outline-success btn-sm" type="submit" name="approve_leave"><span class="icon-check-circle"></span> Approve</button></a> |
+                                <a href="leave_approval.php?id=<?= $leave['id'] ?>" class="text-danger"><button class="btn btn-outline-danger btn-sm" type="submit" name="reject_leave"><span class="icon-cancel"></span> Reject</button></a>
+                            </td>
+                            <?php endif; ?>
 <!--                            <td>-->
 <!--                                <a href="print_leave.php?id=--><?//=$_SESSION['id']?><!--"><span class="table_icons icon-print2 text-success"></span></a>-->
 <!--                            </td>-->
@@ -61,6 +85,7 @@ include_once 'includes/side_navbar.php';
                     </tbody>
                 </table>
             </div>
+            <?php if($_SESSION['id']==1 or $_SESSION['id']==3): ?>
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-header">
@@ -93,6 +118,7 @@ include_once 'includes/side_navbar.php';
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
