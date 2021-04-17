@@ -104,7 +104,6 @@ if(isset($_REQUEST["id"])){
                                     <div class="col">
                                         <label for="occupation">Occupation</label>
                                         <select name="occupation" id="occupation" class="custom-select">
-                                            <option value="none_selected">Select Occupation</option>
                                             <?= update_occupation($user['occupation_id']) ?>
                                         </select>
                                     </div>
@@ -112,7 +111,6 @@ if(isset($_REQUEST["id"])){
                                         <div class="form-group">
                                             <label for="user_level">User Level</label>
                                             <select name="user_level" id="user_level" class="custom-select">
-                                                <option value="none_selected">Select User Level</option>
                                                 <?= update_user_level($user['user_level_id']) ?>
                                             </select>
                                         </div>
@@ -123,7 +121,7 @@ if(isset($_REQUEST["id"])){
 <!--                                <input type="file" class="custom-file-input" id="profile_picture" accept="image/*" name="profile_picture">-->
 <!--                                <label class="custom-file-label" for="profile_picture">Profile picture</label>-->
 <!--                            </div>-->
-                            <button class="btn btn-success btn-block mt-1">Register</button>
+                            <button type="submit" name="update_user" class="btn btn-success btn-block mt-1">Save Updates</button>
                         </form>
                     </div>
                 </div>

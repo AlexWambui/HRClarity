@@ -9,23 +9,13 @@
                     <a href="register_user.php">Add employee</a>
                 </div>
             </li>
-            <li class="nav_items">
-                <button class="dropdown-btn side_nav_dropdown"><span class="side_nav_icons icon-group_work"></span> Departments <span class="icon-caret-down"></span></button>
-                <div class="dropdown-container side_nav_dropdown_container">
-                    <a href="view_departments.php">View departments</a>
-                    <a href="add_department.php">Add department</a>
-                </div>
-            </li>
-            <li class="nav_items">
-                <button class="dropdown-btn side_nav_dropdown"><span class="side_nav_icons icon-work"></span> Occupations <span class="icon-caret-down"></span></button>
-                <div class="dropdown-container side_nav_dropdown_container">
-                    <a href="occupations.php">View occupations</a>
-                    <a href="add_occupation.php">Add occupation</a>
-                </div>
-            </li>
+            <li class="nav_items"><a href="recruitments.php"><span class="side_nav_icons icon-folder-open"></span> Recruitments</a></li>
             <li class="nav_items"><a href="leaves.php"><span class="side_nav_icons icon-time_to_leave"></span> Leaves</a></li>
-            <li class="nav_items"><a href="recruitments.php"><span class="side_nav_icons icon-folder-open"></span> Recruitments</a></li>
-            <li class="nav_items"><a href="recruitments.php"><span class="side_nav_icons icon-folder-open"></span> Recruitments</a></li>
+        <?php if($_SESSION['user_level'] == 3):?>
+            <li class="nav_items"><a href="departments.php"><span class="side_nav_icons icon-group_work"></span> Departments</a></li>
+            <li class="nav_items"><a href="occupations.php"><span class="side_nav_icons icon-work"></span> Occupations</a></li>
+            <li class="nav_items"><a href="reports.php"><span class="side_nav_icons icon-bar-chart"></span> Reports</a></li>
+        <?php endif; ?>
         <?php endif; ?>
     </ul>
 </section>
