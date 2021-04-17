@@ -52,7 +52,7 @@ include_once 'includes/side_navbar.php';
                             <td> <?= $leave["leave_type"] ?></td>
                             <td> <?= $leave["from_date"] ?></td>
                             <td> <?= $leave["to_date"] ?></td>
-                            <td> <?= $leave["status"] ?></td>
+                            <td class="text-success <?php if ($leave['status'] == 'pending') echo 'text-danger' ?>"> <?= $leave["status"] ?></td>
 <!--                            <td>-->
 <!--                                <a href="print_leave.php?id=--><?//=$_SESSION['id']?><!--"><span class="table_icons icon-print2 text-success"></span></a>-->
 <!--                            </td>-->
