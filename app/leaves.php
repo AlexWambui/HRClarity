@@ -43,7 +43,7 @@ include_once 'includes/side_navbar.php';
                         <th>From</th>
                         <th>To</th>
                         <th>Status</th>
-                        <th>Action</th>
+<!--                        <th>Action</th>-->
                     </tr>
                     </thead>
                     <tbody>
@@ -53,9 +53,9 @@ include_once 'includes/side_navbar.php';
                             <td> <?= $leave["from_date"] ?></td>
                             <td> <?= $leave["to_date"] ?></td>
                             <td> <?= $leave["status"] ?></td>
-                            <td>
-                                <a href="print_leave.php?id=<?=$_SESSION['id']?>"><span class="table_icons icon-print2 text-success"></span></a>
-                            </td>
+<!--                            <td>-->
+<!--                                <a href="print_leave.php?id=--><?//=$_SESSION['id']?><!--"><span class="table_icons icon-print2 text-success"></span></a>-->
+<!--                            </td>-->
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
