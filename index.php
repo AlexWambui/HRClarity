@@ -70,3 +70,19 @@ if(isset($_REQUEST['password'])){
 </div>
 </body>
 </html>
+
+<!--
+TODO
+  ------------------------------------------------------------------------------------------
+  -- users side --
+  1. enable users to apply for leaves
+  2. users can view their work details (dpt, occupation, responsibilities, hod, salaries)
+  3. users can view announcements made by hr_manager
+  ------------------------------------------------------------------------------------------
+  -- hr_manager's side --
+  1. enable hr_manager accept or reject leaves
+  ------------------------------------------------------------------------------------------
+  --admin's side --
+  1.
+  ------------------------------------------------------------------------------------------
+-->
