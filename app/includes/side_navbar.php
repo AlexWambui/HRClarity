@@ -13,6 +13,7 @@
         <?php endif; ?>
         <?php if($_SESSION['user_level'] == 1 or $_SESSION['user_level'] == 3): ?>
             <li class="nav_items"><a href="leaves.php"><span class="side_nav_icons icon-time_to_leave"></span> Leaves</a></li>
+            <li class="nav_items"><a href="payslip.php"><span class="side_nav_icons icon-money"></span> Payslip</a></li>
         <?php endif; ?>
         <?php if($_SESSION['user_level'] == 3):?>
             <li class="nav_items"><a href="departments.php"><span class="side_nav_icons icon-group_work"></span> Departments</a></li>
@@ -20,6 +21,9 @@
         <?php endif; ?>
         <?php if($_SESSION['user_level'] == 3 or $_SESSION['user_level'] == 2 ): ?>
             <li class="nav_items"><a href="reports.php"><span class="side_nav_icons icon-bar-chart"></span> Reports</a></li>
+        <?php endif; ?>
+        <?php if($_SESSION['user_level'] == 1): ?>
+            <li class="nav_items"><a href="announcements.php"><span class="side_nav_icons icon-announcement"></span> Announcements</a></li>
         <?php endif; ?>
     </ul>
 </section>
