@@ -75,7 +75,7 @@ if(isset($_REQUEST['password'])){
 TODO
   ------------------------------------------------------------------------------------------
   -- users side --
-  1. enable users to apply for leaves
+  1. enable users to apply for leaves ✔
   2. users can view their work details (dpt, occupation, responsibilities, hod, salaries)
   3. users can view announcements made by hr_manager
   ------------------------------------------------------------------------------------------
