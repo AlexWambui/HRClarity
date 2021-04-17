@@ -45,6 +45,9 @@ include_once 'includes/side_navbar.php';
     <div class="container pt-3">
         <div class="row">
             <div class="col-lg-8 <?php if($_SESSION['id'] == 2) echo 'col-lg-12' ?>">
+                <?php if($_SESSION['id'] == 2): ?>
+                    <?= alerts(); ?>
+                <?php endif; ?>
                 <table id="example" class="table table-striped">
                     <thead>
                     <tr>
@@ -73,8 +76,16 @@ include_once 'includes/side_navbar.php';
                             <td class="text-success <?php if ($leave['status'] == 'pending') echo 'text-danger' ?>"> <?= $leave["status"] ?></td>
                             <?php if($_SESSION['id'] == 2): ?>
                             <td>
-                                <a href="leave_approval.php?id=<?= $leave['id'] ?>" class="text-success"><button class="btn btn-outline-success btn-sm" type="submit" name="approve_leave"><span class="icon-check-circle"></span> Approve</button></a> |
-                                <a href="leave_approval.php?id=<?= $leave['id'] ?>" class="text-danger"><button class="btn btn-outline-danger btn-sm" type="submit" name="reject_leave"><span class="icon-cancel"></span> Reject</button></a>
+                                <div class="row d-flex">
+                                    <form action="leave_approval.php" method="post" class="form-inline mr-2">
+                                        <input type="hidden" name="id" id="id" value="<?= $leave['id'] ?>">
+                                        <button class="btn btn-outline-success btn-sm" type="submit" name="approve_leave"><span class="icon-check-circle"></span> Approve</button>
+                                    </form> |
+                                    <form action="leave_approval.php" method="post" class="form-inline ml-2">
+                                        <input type="hidden" name="id" id="id" value="<?= $leave['id'] ?>">
+                                        <button class="btn btn-outline-danger btn-sm" type="submit" name="reject_leave"><span class="icon-cancel"></span> Reject</button>
+                                    </form>
+                                </div>
                             </td>
                             <?php endif; ?>
 <!--                            <td>-->
