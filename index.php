@@ -73,15 +73,19 @@ if(isset($_REQUEST['password'])){
 
 <!--
 TODO
+  enhance the look on the dashboards
   ------------------------------------------------------------------------------------------
   -- users side --
   1. enable users to apply for leaves ✔
   2. users can view their work details (dpt, occupation, responsibilities, hod, salaries)
-  3. users can view announcements made by hr_manager
+  3. users can view announcements made by hr_manager ✔
   ------------------------------------------------------------------------------------------
   -- hr_manager's side --
-  1. enable hr_manager accept or reject leaves
-  2. hr can make announcements
+  1. enable hr_manager accept or reject leaves ✔
+  2. hr can make announcements ✔
+  3. hr can update or delete announcements
+  4. hr can add, update or delete recruitments
+  5. hr and admin can view reports 
   ------------------------------------------------------------------------------------------
   --admin's side --
   1.
