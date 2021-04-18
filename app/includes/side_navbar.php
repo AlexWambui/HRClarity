@@ -3,6 +3,8 @@
         <li class="nav_items"><a href="welcome_page.php"><span class="side_nav_icons icon-dashboard"></span> Dashboard</a></li>
         <?php if($_SESSION['user_level'] == 3 or $_SESSION['user_level'] == 2 ): ?>
         <li class="nav_items"><a href="users.php"><span class="side_nav_icons icon-users"></span> Employees</a></li>
+        <?php endif; ?>
+        <?php if($_SESSION['user_level'] == 2): ?>
         <li class="nav_items"><a href="recruitments.php"><span class="side_nav_icons icon-folder-open"></span> Recruitments</a></li>
         <?php endif; ?>
         <li class="nav_items"><a href="leaves.php"><span class="side_nav_icons icon-time_to_leave"></span> Leaves</a></li>
