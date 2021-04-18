@@ -58,7 +58,7 @@ include_once 'includes/side_navbar.php';
                             <?php if($_SESSION['id'] == 2): ?>
                                 <td>
                                     <div class="row d-flex">
-                                        <form action="update_announcement.php" method="post" class="form-inline mr-2">
+                                        <form action="update_announcement_form.php" method="post" class="form-inline mr-2">
                                             <input type="hidden" name="id" id="id" value="<?= $announcement['id'] ?>">
                                             <button class="btn btn-outline-success btn-sm" type="submit" name="update_announcement"><span class="icon-check-circle"></span> Update</button>
                                         </form> |
@@ -106,7 +106,6 @@ include_once 'includes/side_navbar.php';
     function makeAnnouncement() {
         document.getElementById("announcements_form").style.display = "block";
     }
-
     function closeAnnouncement() {
         document.getElementById("announcements_form").style.display = "none";
     }
