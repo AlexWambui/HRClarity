@@ -34,7 +34,7 @@ if(isset($_REQUEST["id"])){
                     </div>
                     <div class="card-body">
                         <?= alerts() ?>
-                        <form action="update_user_code.php" method="post" enctype="multipart/form-data">
+                        <form action="includes/functions.php" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="id" id="id" value="<?= $user['id'] ?>">
                             <div class="row">
                                 <div class="col">
