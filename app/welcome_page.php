@@ -14,29 +14,74 @@
     include_once "includes/top_navbar.php";
     include_once "includes/side_navbar.php";
 ?>
-<div class="main_content container pt-3 pl-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-3 mr-2 mb-2 bg_orange">
-            <a href="" class="stretched-link"></a>
-            <h4>Personal Details</h4>
-            <p>View Details <span class="dashboard_icons icon-forward2"></span></p>
+<div class="main_content container-fluid pt-1">
+    <?php if($_SESSION['user_level'] == 1): ?>
+    <div class="row dashboard">
+        <div class="col m-1 p-2 bg_purple">
+            <a href="leaves.php" class="stretched-link"></a>
+            <h5 class="text-center"><span class="icon-time_to_leave"></span> Leaves:</h5>
+            <p class="m-1">Pending: <span class="dashboard_info"><?=count_individual_pending_leaves()?></span></p>
+            <p class="m-1">Total: <span class="dashboard_info"><?=count_individual_leaves()?></span></p>
         </div>
-        <div class="col-lg-3 mr-2 mb-2 bg_dark_cyan">
-            <a href="" class="stretched-link"></a>
-            <h4>My Salary</h4>
-            <p>Total Salary: 15000/=</p>
+        <div class="col m-1 p-2 bg_dark_cyan">
+            <a href="payslip.php" class="stretched-link"></a>
+            <h5 class="text-center"><span class="icon-money"></span> Payslip:</h5>
+            <p class="m-1">Your Payslip is Ready.</p>
+            <p class="m-1">Print Now</p>
         </div>
-        <div class="col-lg-3 mr-2 mb-2 bg_purple">
-            <a href="#" class="stretched_link"></a>
-            <h4>Employees</h4>
-            <p>Total Employees: 20</p>
-        </div>
-        <div class="col-lg-3 mr-2 mb-2 bg_dark_cyan">
-            <a href="#" class="stretched_link"></a>
-            <h4>Leaves</h4>
-            <p>Pending Leaves: 4</p>
+        <div class="col m-1 p-2 bg_orange">
+            <a href="announcements.php" class="stretched-link"></a>
+            <h5 class="text-center"><span class="icon-folder-open"></span> Announcements:</h5>
+            <p class="m-1">View New Announcements</p>
         </div>
     </div>
+    <?php endif; ?>
+    <?php if($_SESSION['user_level'] == 2): ?>
+    <div class="row dashboard">
+        <div class="col m-1 p-2 bg_dark_cyan">
+            <a href="users.php" class="stretched-link"></a>
+            <h5 class="text-center"><span class="icon-users"></span> Employees:</h5>
+            <p class="m-0">Active: <span class="dashboard_info"><?=count_active_users()?></span></p>
+            <p class="m-0">Archived: <span class="dashboard_info"><?=count_archived_users()?></span></p>
+            <p class="m-0">Total: <span class="dashboard_info"><?=count_users()?></span></p>
+        </div>
+        <div class="col m-1 p-2 bg_purple">
+            <a href="leaves.php" class="stretched-link"></a>
+            <h5 class="text-center"><span class="icon-time_to_leave"></span> Leaves:</h5>
+            <p class="m-0">Pending: <span class="dashboard_info"><?=count_pending_leaves()?></span></p>
+            <p class="m-0">Expired: <span class="dashboard_info"><?=count_expired_leaves()?></span></p>
+            <p class="m-0">Total: <span class="dashboard_info"><?=count_leaves()?></span></p>
+        </div>
+        <div class="col m-1 p-2 bg_orange">
+            <a href="recruitments.php" class="stretched-link"></a>
+            <h5 class="text-center"><span class="icon-folder-open"></span> Recruitments:</h5>
+            <p class="m-0">Expired: <span class="dashboard_info"><?=count_expired_recruitments()?></span></p>
+            <p class="m-0">Today: <span class="dashboard_info"><?=count_recruitments_today()?></span></p>
+            <p class="m-0">Total: <span class="dashboard_info"><?=count_recruitments()?></span></p>
+        </div>
+    </div>
+    <?php endif; ?>
+    <?php if($_SESSION['user_level'] == 3): ?>
+    <div class="row dashboard">
+            <div class="col m-1 p-2 bg_dark_cyan">
+                <a href="users.php" class="stretched-link"></a>
+                <h5 class="text-center"><span class="icon-users"></span> Employees:</h5>
+                <p class="m-0">Active: <span class="dashboard_info"><?=count_active_users()?></span></p>
+                <p class="m-0">Archived: <span class="dashboard_info"><?=count_archived_users()?></span></p>
+                <p class="m-0">Total: <span class="dashboard_info"><?=count_users()?></span></p>
+            </div>
+            <div class="col m-1 p-2 bg_purple">
+                <a href="departments.php" class="stretched-link"></a>
+                <h5 class="text-center"><span class="icon-time_to_leave"></span> Departments:</h5>
+                <p class="m-0">Total: <span class="dashboard_info"><?=count_departments()?></span></p>
+            </div>
+            <div class="col m-1 p-2 bg_orange">
+                <a href="occupations.php" class="stretched-link"></a>
+                <h5 class="text-center"><span class="icon-folder-open"></span> Occupations:</h5>
+                <p class="m-0">Total: <span class="dashboard_info"><?=count_occupations()?></span></p>
+            </div>
+        </div>
+    <?php endif; ?>
 </div>
 </body>
 </html>
