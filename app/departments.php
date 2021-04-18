@@ -45,8 +45,13 @@ mysqli_close($db_conn);
                         <tr>
                             <td> <?= $department["dpt_name"] ?></td>
                             <td>
-                                <a href="update_department.php?id=<?= $department['id']?>"><span class="table_icons icon-pencil text-success"></span></a> |
-                                <a href="delete_department.php?id=<?= $department['id']?>"><span class="table_icons icon-trash text-danger"></span></a>
+                                <div class="row d-flex">
+                                    <a href="update_department_form.php?id=<?=$department['id']?>" class="btn btn-outline-success btn-sm mr-2"><span class="icon-pencil"></span></a>|
+                                    <form action="includes/functions.php" method="post" class="form-inline ml-2">
+                                        <input type="hidden" name="id" id="id" value="<?= $department['id'] ?>">
+                                        <button class="btn btn-outline-danger btn-sm" type="submit" name="delete_department"><span class="icon-trash"></span></button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>
