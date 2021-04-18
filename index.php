@@ -90,6 +90,6 @@ TODO
   4. hr can add, update or delete recruitments ✔
   ------------------------------------------------------------------------------------------
   --admin's side --
-  1.
+  1. update and delete occupations and dpts should work without being affected by the relationships.
   ------------------------------------------------------------------------------------------
 -->
