@@ -21,7 +21,6 @@ if(isset($_REQUEST['venue'])){
 $sql_fetch_recruitments = "SELECT * FROM recruitments ORDER BY interview_date DESC";
 $execute_sql_fetch_recruitments = mysqli_query($db_conn, $sql_fetch_recruitments) or die(mysqli_error($db_conn));
 $fetched_recruitments = mysqli_fetch_all($execute_sql_fetch_recruitments, 1);
-mysqli_close($db_conn);
 ?>
 <!doctype html>
 <html lang="en">
@@ -40,6 +39,11 @@ include_once 'includes/side_navbar.php';
         <div class="row">
             <div class="col-lg-12">
                 <?= alerts(); ?>
+                <div class="container_header d-flex justify-content-between">
+                    <p>Total <span class="badge badge-info"><?=count_recruitments()?></span></p>
+                    <p>Today <span class="badge badge-info"><?=count_recruitments_today()?></span></p>
+                    <p>Expired <span class="badge badge-danger"><?=count_expired_recruitments()?></span></p>
+                </div>
                 <table id="example" class="table table-striped">
                     <thead>
                     <tr>
