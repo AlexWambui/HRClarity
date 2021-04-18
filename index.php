@@ -83,9 +83,9 @@ TODO
   -- hr_manager's side --
   1. enable hr_manager accept or reject leaves ✔
   2. hr can make announcements ✔
-  3. hr can update or delete announcements
+  3. hr can update or delete announcements ✔
   4. hr can add, update or delete recruitments
-  5. hr and admin can view reports 
+  5. hr and admin can view reports (all employees in the org (names, email, phone, department, occupation, net-income)
   ------------------------------------------------------------------------------------------
   --admin's side --
   1.
