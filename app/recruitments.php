@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Africa/Nairobi');
 include_once 'includes/functions.php';
 include_once 'includes/db_connection.php';
 protect_page();
@@ -40,7 +41,7 @@ include_once 'includes/side_navbar.php';
             <div class="col-lg-12">
                 <?= alerts(); ?>
                 <div class="container_header d-flex justify-content-between">
-                    <p>Total <span class="badge badge-info"><?=count_recruitments()?></span></p>
+                    <p>Recruitments <span class="badge badge-info"><?=count_recruitments()?></span></p>
                     <p>Today <span class="badge badge-info"><?=count_recruitments_today()?></span></p>
                     <p>Expired <span class="badge badge-danger"><?=count_expired_recruitments()?></span></p>
                 </div>
@@ -64,7 +65,7 @@ include_once 'includes/side_navbar.php';
                             <td> <?= $recruitment["phone_number"] ?></td>
                             <td> <?= $recruitment["occupation"]?> </td>
                             <td> <?= $recruitment["venue"] ?></td>
-                            <td class="<?php if($recruitment["interview_date"] < date('Y-m-d')) echo 'text-danger'; if($recruitment["interview_date"] == date('Y-m-d')) echo 'text-success' ?>"> <?= $recruitment["interview_date"] ?></td>
+                            <td class="<?php if($recruitment["interview_date"] < date('Y-m-d')) echo 'text-danger'; if($recruitment["interview_date"] == (new DateTime())->format('Y-m-d')) echo 'text-success' ?>"> <?= $recruitment["interview_date"] ?></td>
                             <td>
                                 <div class="row d-flex">
                                     <a href="update_recruitment_form.php?id=<?=$recruitment['id']?>" class="btn btn-sm mr-1"><span class="icon-pencil text-info"></span></a> |
