@@ -40,7 +40,7 @@ include_once 'includes/side_navbar.php';
 <div class="main_content">
     <div class="container mt-3 ml-2">
         <div class="row justify-content-center">
-            <div class="col-lg-11 border border-dark">
+            <div class="col-lg-11">
                 <div class="payslip_header">
                     <h5 class="text-center text-info">EMPLOYEE PAYSLIP</h5>
                     <p class="text-center">Date: <?= date('Y-m-d'); ?></p>

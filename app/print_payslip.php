@@ -35,7 +35,7 @@ mysqli_close($db_conn);
 <body onload="window.print()">
 <div class="container mt-3 ml-2">
     <div class="row justify-content-center">
-        <div class="col-lg-11 border border-dark">
+        <div class="col-lg-11">
             <div class="payslip_header">
                 <h3 class="text-center text-info">EMPLOYEE PAYSLIP</h3>
                 <p class="text-center">Date: <?= date('Y-m-d'); ?></p>
