@@ -17,7 +17,7 @@ if(isset($_REQUEST['announcement'])){
 $sql_fetch_announcements = "SELECT * FROM announcements";
 $execute_sql_fetch_announcements = mysqli_query($db_conn, $sql_fetch_announcements) or die(mysqli_error($db_conn));
 $fetched_announcements = mysqli_fetch_all($execute_sql_fetch_announcements, 1);
-mysqli_close($db_conn);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -37,6 +37,9 @@ include_once 'includes/side_navbar.php';
             <div class="col-lg-8 <?php if($_SESSION['id'] == 2) echo 'col-lg-12' ?>">
                 <?php if($_SESSION['id'] == 2): ?>
                     <?= alerts(); ?>
+                    <div class="container_header d-flex justify-content-between">
+                        <p>Announcements <span class="badge badge-info"><?=count_announcements()?></span></p>
+                    </div>
                 <?php endif; ?>
                 <table id="example" class="table table-striped">
                     <thead>

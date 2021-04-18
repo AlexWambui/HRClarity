@@ -174,6 +174,12 @@ function count_occupations(): int{
     return mysqli_num_rows($query);
 }
 
+function count_announcements(): int{
+    global $db_conn;
+    $query = $db_conn->query("SELECT * FROM announcements");
+    return mysqli_num_rows($query);
+}
+
 if(isset($_POST['update_occupation'])){
     $id = $_REQUEST['id'];
     $title = $_REQUEST['title'];
