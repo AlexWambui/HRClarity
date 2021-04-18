@@ -16,18 +16,18 @@ if(isset($_REQUEST['from_date'])){
     setcookie('success', "leave sent", time()+2);
     header('location: leaves.php');
 }
-if($_SESSION['id'] == 2) {
-    $sql_fetch_leaves = "SELECT * FROM leaves LEFT JOIN users ON leaves.user_id = users.id";
+if($_SESSION['user_level'] == 2) {
+    $sql_fetch_leaves = "SELECT leaves.id as leave_id, leaves.leave_type, leaves.from_date, leaves.to_date, leaves.status, leaves.user_id as user_id, leaves.date_created, users.first_name, users.last_name FROM leaves LEFT JOIN users ON leaves.user_id = users.id ORDER BY date_created DESC";
     $execute_sql_fetch_leaves = mysqli_query($db_conn, $sql_fetch_leaves) or die(mysqli_error($db_conn));
     $fetched_leaves = mysqli_fetch_all($execute_sql_fetch_leaves, 1);
-    mysqli_close($db_conn);
+
 }
-if($_SESSION['id'] == 1 or $_SESSION['id'] == 3){
+if($_SESSION['user_level'] == 1 or $_SESSION['user_level'] == 3){
     $id = $_SESSION['id'];
-    $sql_fetch_leaves = "SELECT * FROM leaves LEFT JOIN users ON leaves.user_id = users.id WHERE user_id = $id ";
-    $execute_sql_fetch_leaves = mysqli_query($db_conn, $sql_fetch_leaves) or die(mysqli_error($db_conn));
-    $fetched_leaves = mysqli_fetch_all($execute_sql_fetch_leaves, 1);
-    mysqli_close($db_conn);
+    $sql_fetch_leave = "SELECT * FROM leaves LEFT JOIN users ON leaves.user_id = users.id WHERE user_id = $id ORDER BY date_created DESC";
+    $execute_sql_fetch_leave = mysqli_query($db_conn, $sql_fetch_leave) or die(mysqli_error($db_conn));
+    $fetched_leave = mysqli_fetch_all($execute_sql_fetch_leave, 1);
+
 }
 ?>
 <!doctype html>
@@ -47,8 +47,12 @@ include_once 'includes/side_navbar.php';
             <div class="col-lg-8 <?php if($_SESSION['id'] == 2) echo 'col-lg-12' ?>">
                 <?php if($_SESSION['id'] == 2): ?>
                     <?= alerts(); ?>
+                <div class="container_header d-flex justify-content-between">
+                    <p>Leaves <span class="badge badge-info"><?=count_leaves()?></span></p>
+                    <p>Pending <span class="badge badge-danger"><?=count_pending_leaves()?></span></p>
+                </div>
                 <?php endif; ?>
-                <table id="example" class="table table-striped">
+                <table id="" class="table table-striped">
                     <thead>
                     <tr>
                         <?php if($_SESSION['id'] == 2): ?>
@@ -61,42 +65,49 @@ include_once 'includes/side_navbar.php';
                         <?php if($_SESSION['id'] == 2): ?>
                         <th>Approval</th>
                         <?php endif; ?>
-<!--                        <th>Action</th>-->
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($fetched_leaves as $leave): ?>
+                    <?php if($_SESSION['user_level'] == 1 or $_SESSION['user_level'] == 3): ?>
+                    <?php foreach($fetched_leave as $leave): ?>
                         <tr>
-                            <?php if($_SESSION['id'] == 2): ?>
+                            <?php if($_SESSION['user_level'] == 2): ?>
                             <td><?= $leave['first_name'].' '.$leave['last_name'] ?></td>
                             <?php endif; ?>
                             <td> <?= $leave["leave_type"] ?></td>
                             <td> <?= $leave["from_date"] ?></td>
                             <td> <?= $leave["to_date"] ?></td>
-                            <td class="text-success <?php if ($leave['status'] == 'pending' or $leave['status'] == 'rejected') echo 'text-danger' ?>"> <?= $leave["status"] ?></td>
-                            <?php if($_SESSION['id'] == 2): ?>
-                            <td>
-                                <div class="row d-flex">
-                                    <form action="includes/functions.php" method="post" class="form-inline mr-2">
-                                        <input type="hidden" name="id" id="id" value="<?= $leave['id'] ?>">
-                                        <button class="btn btn-outline-success btn-sm" type="submit" name="approve_leave"><span class="icon-check-circle"></span> Approve</button>
-                                    </form> |
-                                    <form action="includes/functions.php" method="post" class="form-inline ml-2">
-                                        <input type="hidden" name="id" id="id" value="<?= $leave['id'] ?>">
-                                        <button class="btn btn-outline-danger btn-sm" type="submit" name="reject_leave"><span class="icon-cancel"></span> Reject</button>
-                                    </form>
-                                </div>
-                            </td>
-                            <?php endif; ?>
-<!--                            <td>-->
-<!--                                <a href="print_leave.php?id=--><?//=$_SESSION['id']?><!--"><span class="table_icons icon-print2 text-success"></span></a>-->
-<!--                            </td>-->
+                            <td class="text-success <?php if ($leave['status'] == 'pending') echo 'text-warning'; if($leave['status'] == 'rejected') echo 'text-danger'; ?>"> <?= $leave["status"] ?></td>
                         </tr>
                     <?php endforeach; ?>
+                    <?php endif; ?>
+                    <?php if($_SESSION['user_level'] == 2): ?>
+                    <?php foreach($fetched_leaves as $leave): ?>
+                    <tr>
+                        <td><?= $leave['first_name'].' '.$leave['last_name'] ?></td>
+                        <td> <?= $leave["leave_type"] ?></td>
+                        <td> <?= $leave["from_date"] ?></td>
+                        <td> <?= $leave["to_date"] ?></td>
+                        <td class="text-success <?php if ($leave['status'] == 'pending') echo 'text-warning'; if($leave['status'] == 'rejected') echo 'text-danger'; ?>"> <?= $leave["status"] ?></td>
+                        <td>
+                            <div class="row d-flex">
+                                <form action="includes/functions.php" method="post" class="form-inline mr-2">
+                                    <input type="hidden" name="id" id="id" value="<?= $leave['leave_id'] ?>">
+                                    <button class="btn btn-sm" type="submit" name="approve_leave"><span class="text-success icon-check-circle"></span> Approve</button>
+                                </form> |
+                                <form action="includes/functions.php" method="post" class="form-inline ml-2">
+                                    <input type="hidden" name="id" id="id" value="<?= $leave['leave_id'] ?>">
+                                    <button class="btn btn-sm" type="submit" name="reject_leave"><span class="text-danger icon-cancel"></span> Reject</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
                     </tbody>
                 </table>
             </div>
-            <?php if($_SESSION['id']==1 or $_SESSION['id']==3): ?>
+            <?php if($_SESSION['user_level'] == 1 or $_SESSION['user_level'] == 3): ?>
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-header">
