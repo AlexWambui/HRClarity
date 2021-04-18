@@ -100,6 +100,79 @@ function count_users(): int {
     return mysqli_num_rows($query);
 }
 
+function count_active_users(): int{
+    global $db_conn;
+    $query = $db_conn->query("SELECT * FROM users WHERE user_status = 1");
+    return mysqli_num_rows($query);
+}
+
+function count_archived_users(): int{
+    global $db_conn;
+    $query = $db_conn->query("SELECT * FROM users WHERE user_status = 0");
+    return mysqli_num_rows($query);
+}
+
+function count_leaves(): int{
+    global $db_conn;
+    $query = $db_conn->query("SELECT * FROM leaves");
+    return mysqli_num_rows($query);
+}
+
+function count_pending_leaves(): int{
+    global $db_conn;
+    $query = $db_conn->query("SELECT * FROM leaves WHERE status = 'pending' ");
+    return mysqli_num_rows($query);
+}
+
+function count_individual_leaves(): int{
+    global $db_conn;
+    $id = $_SESSION['id'];
+    $query = $db_conn->query("SELECT * FROM leaves WHERE user_id = $id");
+    return mysqli_num_rows($query);
+}
+
+function count_individual_pending_leaves(): int{
+    global $db_conn;
+    $id = $_SESSION['id'];
+    $query = $db_conn->query("SELECT * FROM leaves WHERE status = 'pending' AND user_id = $id");
+    return mysqli_num_rows($query);
+}
+
+function count_expired_leaves(): int{
+    global $db_conn;
+    $query = $db_conn->query("SELECT * from leaves WHERE to_date <= CURRENT_DATE()");
+    return mysqli_num_rows($query);
+}
+
+function count_recruitments(): int{
+    global $db_conn;
+    $query = $db_conn->query("SELECT * FROM recruitments");
+    return mysqli_num_rows($query);
+}
+
+function count_expired_recruitments(): int{
+    global $db_conn;
+    $query = $db_conn->query("SELECT * FROM recruitments WHERE interview_date < CURRENT_DATE() ");
+    return mysqli_num_rows($query);
+}
+
+function count_recruitments_today(): int{
+    global $db_conn;
+    $query = $db_conn->query("SELECT * FROM recruitments WHERE interview_date = CURRENT_DATE() ");
+    return mysqli_num_rows($query);
+}
+
+function count_departments(): int{
+    global $db_conn;
+    $query = $db_conn->query("SELECT * FROM departments");
+    return mysqli_num_rows($query);
+}
+
+function count_occupations(): int{
+    global $db_conn;
+    $query = $db_conn->query("SELECT * FROM occupations");
+    return mysqli_num_rows($query);
+}
 
 if(isset($_POST['update_occupation'])){
     $id = $_REQUEST['id'];
@@ -168,6 +241,36 @@ if(isset($_POST['update_user'])){
     header('location: ../users.php');
 }
 
+if(isset($_POST['archive_user'])){
+    $id = $_REQUEST['id'];
+    $first_name = $_REQUEST['first_name'];
+    $sql_archive_user = "UPDATE users SET user_status = 0 WHERE id = $id";
+    mysqli_query($db_conn, $sql_archive_user) or die(mysqli_error($db_conn));
+    setcookie('success', "$first_name archived", time()+2);
+    header('location: ../users.php');
+    mysqli_close($db_conn);
+}
+
+if(isset($_POST['unarchive_user'])){
+    $id = $_REQUEST['id'];
+    $first_name = $_REQUEST['first_name'];
+    $sql_unarchive_user = "UPDATE users SET user_status = 1 WHERE id = $id";
+    mysqli_query($db_conn, $sql_unarchive_user) or die(mysqli_error($db_conn));
+    setcookie('success', "$first_name unarchived", time()+2);
+    header('location: ../users.php');
+    mysqli_close($db_conn);
+}
+
+if(isset($_POST['unarchive_user'])){
+    $id = $_REQUEST['id'];
+    $first_name = $_REQUEST['first_name'];
+    $sql_unarchive_user = "UPDATE users SET user_status = 0 WHERE id = $id";
+    mysqli_query($db_conn, $sql_unarchive_user) or die(mysqli_error($db_conn));
+    setcookie('success', 'unarchived successfully', time()+2);
+    header('location: ../users.php');
+    mysqli_close($db_conn);
+}
+
 if(isset($_POST['update_recruitment'])){
     $id = $_REQUEST['id'];
     $names = $_REQUEST['names'];
@@ -204,7 +307,6 @@ if(isset($_POST['delete_recruitment'])){
 if(isset($_POST['approve_leave'])){
     $id = $_REQUEST['id'];
     $approved = 'approved';
-    $rejected = 'rejected';
     $sql_approve_leave = "UPDATE leaves SET status='$approved' WHERE id = $id";
     mysqli_query($db_conn, $sql_approve_leave) or die(mysqli_error($db_conn));
     setcookie('success', "leave has been approved", time()+2 );
@@ -213,7 +315,6 @@ if(isset($_POST['approve_leave'])){
 }
 if(isset($_POST['reject_leave'])){
     $id = $_REQUEST['id'];
-    $approved = 'approved';
     $rejected = 'rejected';
     $sql_approve_leave = "UPDATE leaves SET status='$rejected' WHERE id = $id";
     mysqli_query($db_conn, $sql_approve_leave) or die(mysqli_error($db_conn));
