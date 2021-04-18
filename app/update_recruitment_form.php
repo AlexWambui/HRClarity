@@ -38,7 +38,7 @@ include_once 'includes/side_navbar.php';
                     </div>
                     <div class="card-body">
                         <?= alerts() ?>
-                        <form action="update_recruitment.php" method="post" autocomplete="off">
+                        <form action="includes/functions.php" method="post" autocomplete="off">
                             <input type="hidden" name="id" id="id" value="<?=$recruitment['id']?>">
                             <div class="form-group">
                                 <label for="names">Names</label>

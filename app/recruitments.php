@@ -63,11 +63,8 @@ include_once 'includes/side_navbar.php';
                             <td class="<?php if($recruitment["interview_date"] < date('Y-m-d')) echo 'text-danger'; if($recruitment["interview_date"] == date('Y-m-d')) echo 'text-success' ?>"> <?= $recruitment["interview_date"] ?></td>
                             <td>
                                 <div class="row d-flex">
-                                    <form action="update_recruitment_form.php" method="post" class="form-inline mr-1">
-                                        <input type="hidden" name="id" id="id" value="<?= $recruitment['id'] ?>">
-                                        <button class="btn btn-sm" type="submit" name="update_recruitment"><span class="icon-pencil text-info"></span></button>
-                                    </form> |
-                                    <form action="update_recruitment.php" method="post" class="form-inline ml-1">
+                                    <a href="update_recruitment_form.php?id=<?=$recruitment['id']?>" class="btn btn-sm mr-1"><span class="icon-pencil text-info"></span></a> |
+                                    <form action="includes/functions.php" method="post" class="form-inline ml-1">
                                         <input type="hidden" name="id" id="id" value="<?= $recruitment['id'] ?>">
                                         <button class="btn btn-sm" type="submit" name="delete_recruitment"><span class="icon-trash text-danger"></span></button>
                                     </form>
