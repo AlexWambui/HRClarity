@@ -15,6 +15,7 @@ body {
 
 /* The popup form - hidden by default */
 .form-popup {
+    width: 40%;
     display: none;
     position: fixed;
     bottom: 0;
