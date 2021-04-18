@@ -74,7 +74,8 @@ if(isset($_REQUEST['password'])){
 <!--
 TODO
   *enhance the look on the dashboards
-  *make add and view employees one page instead of two diff pages
+  *make add and view employees one page instead of two diff pages ✔
+  *make update and delete pages one page for occupations and departments
   *do reports for admin and hr all employees in the org (names, email, phone, department, occupation, net-income)
   ------------------------------------------------------------------------------------------
   -- users side --
