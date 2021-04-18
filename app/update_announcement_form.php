@@ -38,7 +38,7 @@ include_once 'includes/side_navbar.php';
                     </div>
                     <div class="card-body">
                         <?= alerts() ?>
-                        <form action="update_announcement.php" method="post">
+                        <form action="includes/functions.php" method="post">
                             <input type="hidden" name="id" id="id" value="<?=$announcement['id']?>">
                             <div class="form-group">
                                 <label for="title">Title</label>

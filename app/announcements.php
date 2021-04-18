@@ -58,11 +58,8 @@ include_once 'includes/side_navbar.php';
                             <?php if($_SESSION['id'] == 2): ?>
                                 <td>
                                     <div class="row d-flex">
-                                        <form action="update_announcement_form.php" method="post" class="form-inline mr-2">
-                                            <input type="hidden" name="id" id="id" value="<?= $announcement['id'] ?>">
-                                            <button class="btn btn-outline-success btn-sm" type="submit" name="update_announcement"><span class="icon-check-circle"></span> Update</button>
-                                        </form> |
-                                        <form action="update_announcement.php" method="post" class="form-inline ml-2">
+                                        <a href="update_announcement_form.php?id=<?=$announcement['id']?>" class="btn btn-outline-success btn-sm mr-2"><span class="icon-pencil"></span> Update</a>|
+                                        <form action="includes/functions.php" method="post" class="form-inline ml-2">
                                             <input type="hidden" name="id" id="id" value="<?= $announcement['id'] ?>">
                                             <button class="btn btn-outline-danger btn-sm" type="submit" name="delete_announcement"><span class="icon-cancel"></span> Delete</button>
                                         </form>
