@@ -17,9 +17,9 @@
             <li class="nav_items"><a href="occupations.php"><span class="side_nav_icons icon-work"></span> Occupations</a></li>
         <?php endif; ?>
         <li class="nav_items"><a href="payslip.php"><span class="side_nav_icons icon-money"></span> Payslip</a></li>
-        <?php if($_SESSION['user_level'] == 3 or $_SESSION['user_level'] == 2 ): ?>
-            <li class="nav_items"><a href="reports.php"><span class="side_nav_icons icon-bar-chart"></span> Reports</a></li>
-        <?php endif; ?>
+<!--        --><?php //if($_SESSION['user_level'] == 3 or $_SESSION['user_level'] == 2 ): ?>
+<!--            <li class="nav_items"><a href="reports.php"><span class="side_nav_icons icon-bar-chart"></span> Reports</a></li>-->
+<!--        --><?php //endif; ?>
         <li class="nav_items"><a href="announcements.php"><span class="side_nav_icons icon-announcement"></span> Announcements</a></li>
     </ul>
 </section>
