@@ -55,7 +55,7 @@ $fetched_occupations = mysqli_fetch_all($sql_fetched_occupations, 1);
                             <td> <?= $occupation['title'] ?> </td>
                             <td> <?= $occupation['basic_salary'] ?> </td>
                             <td>
-                                <a href="update_occupation.php?id=<?= $occupation['occupations_id']?>"><span class="table_icons icon-pencil text-success"></span></a> |
+                                <a href="update_occupation.php?id=<?= $occupation['occupations_id']?>"><span class="table_icons icon-pencil text-success"></span></a>|
                                 <a href="delete_occupation.php?id=<?= $occupation['occupations_id']?>"><span class="table_icons icon-trash text-success"></span></a>
                             </td>
                         </tr>
