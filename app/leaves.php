@@ -73,15 +73,15 @@ include_once 'includes/side_navbar.php';
                             <td> <?= $leave["leave_type"] ?></td>
                             <td> <?= $leave["from_date"] ?></td>
                             <td> <?= $leave["to_date"] ?></td>
-                            <td class="text-success <?php if ($leave['status'] == 'pending') echo 'text-danger' ?>"> <?= $leave["status"] ?></td>
+                            <td class="text-success <?php if ($leave['status'] == 'pending' or $leave['status'] == 'rejected') echo 'text-danger' ?>"> <?= $leave["status"] ?></td>
                             <?php if($_SESSION['id'] == 2): ?>
                             <td>
                                 <div class="row d-flex">
-                                    <form action="leave_approval.php" method="post" class="form-inline mr-2">
+                                    <form action="includes/functions.php" method="post" class="form-inline mr-2">
                                         <input type="hidden" name="id" id="id" value="<?= $leave['id'] ?>">
                                         <button class="btn btn-outline-success btn-sm" type="submit" name="approve_leave"><span class="icon-check-circle"></span> Approve</button>
                                     </form> |
-                                    <form action="leave_approval.php" method="post" class="form-inline ml-2">
+                                    <form action="includes/functions.php" method="post" class="form-inline ml-2">
                                         <input type="hidden" name="id" id="id" value="<?= $leave['id'] ?>">
                                         <button class="btn btn-outline-danger btn-sm" type="submit" name="reject_leave"><span class="icon-cancel"></span> Reject</button>
                                     </form>
