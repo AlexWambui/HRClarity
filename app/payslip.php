@@ -79,7 +79,7 @@ include_once 'includes/side_navbar.php';
                 </div>
             </div>
             <div class="col-lg-1 d-flex flex-row justify-content-center align-items-center">
-                <a href="print_payslip.php" target="_blank"><span class="icon_print_payslip icon-print"></span></a>
+                <a href="print_payslip.php" target="_blank"><span class="icon_print_payslip icon-print text-dark"></span></a>
             </div>
         </div>
     </div>
