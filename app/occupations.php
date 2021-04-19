@@ -55,8 +55,13 @@ $fetched_occupations = mysqli_fetch_all($sql_fetched_occupations, 1);
                             <td> <?= $occupation['title'] ?> </td>
                             <td> <?= $occupation['basic_salary'] ?> </td>
                             <td>
-                                <a href="update_occupation.php?id=<?= $occupation['occupations_id']?>"><span class="table_icons icon-pencil text-success"></span></a>|
-                                <a href="delete_occupation.php?id=<?= $occupation['occupations_id']?>"><span class="table_icons icon-trash text-success"></span></a>
+                                <div class="row d-flex">
+                                    <a href="update_occupation.php?id=<?=$occupation['occupations_id']?>" class="btn btn-sm mr-1"><span class="icon-pencil text-info"></span></a>|
+                                    <form action="includes/functions.php" method="post" class="form-inline ml-1">
+                                        <input type="hidden" name="id" id="id" value="<?= $occupation['occupations_id'] ?>">
+                                        <button class="btn btn-sm" type="submit" name="delete_occupation"><span class="icon-trash text-danger"></span></button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -70,7 +75,7 @@ $fetched_occupations = mysqli_fetch_all($sql_fetched_occupations, 1);
                     </div>
                     <div class="card-body">
                         <?= alerts() ?>
-                        <form action="occupations.php" method="post">
+                        <form action="occupations.php" method="post" autocomplete="off">
                             <div class="form-group">
                                 <input type="text" name="title" id="title" class="form-control" placeholder="Occupation Title" autofocus required>
                             </div>
