@@ -18,7 +18,7 @@
 
 .top_nav,
 .side_nav_bar{
-    background: #26a042;
+    background: #28a745;
     color: #efefef;
 }
 .top_nav a,
@@ -31,9 +31,17 @@
     top: 0;
     z-index: 10;
 }
+.logo{
+    padding-left: 4%;
+}
+.logo img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
 .app_name{
-    font-size: 1.3rem;
-    text-transform: uppercase;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 /* side_bar */
