@@ -5,7 +5,7 @@ function protect_page(){
     session_start();
     if(empty($_SESSION['id'])){
         //Redirect the user to login page
-        header("location: ../index.php");
+        header("location: login.php");
     }
 }
 
