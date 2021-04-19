@@ -11,7 +11,7 @@ if(isset($_REQUEST['dpt_name'])){
     mysqli_stmt_execute($sql_add_department);
     mysqli_close($db_conn);
     setcookie('success', "department $dpt_name added", time()+2);
-    header('location: view_departments.php');
+    header('location: departments.php');
 }
 $sql_fetch_departments = "SELECT * FROM departments";
 $execute_sql_fetch_departments = mysqli_query($db_conn, $sql_fetch_departments) or die(mysqli_error($db_conn));
@@ -46,10 +46,10 @@ mysqli_close($db_conn);
                             <td> <?= $department["dpt_name"] ?></td>
                             <td>
                                 <div class="row d-flex">
-                                    <a href="update_department_form.php?id=<?=$department['id']?>" class="btn btn-outline-success btn-sm mr-2"><span class="icon-pencil"></span></a>|
+                                    <a href="update_department_form.php?id=<?=$department['id']?>" class="btn btn-sm mr-2"><span class="icon-pencil text-info"></span></a>|
                                     <form action="includes/functions.php" method="post" class="form-inline ml-2">
                                         <input type="hidden" name="id" id="id" value="<?= $department['id'] ?>">
-                                        <button class="btn btn-outline-danger btn-sm" type="submit" name="delete_department"><span class="icon-trash"></span></button>
+                                        <button class="btn btn-sm" type="submit" name="delete_department"><span class="icon-trash text-danger"></span></button>
                                     </form>
                                 </div>
                             </td>
@@ -65,7 +65,7 @@ mysqli_close($db_conn);
                     </div>
                     <div class="card-body">
                         <?= alerts() ?>
-                        <form action="departments.php" method="post">
+                        <form action="departments.php" method="post" autocomplete="off">
                             <div class="form-group">
                                 <input type="text" name="dpt_name" id="dpt_name" class="form-control" placeholder="Department Name" autofocus required>
                             </div>
