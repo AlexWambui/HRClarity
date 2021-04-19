@@ -129,11 +129,11 @@ include_once 'includes/side_navbar.php';
                             </div>
                             <div class="form-group">
                                 <label for="from_date">From Date:</label>
-                                <input type="date" name="from_date" id="from_date" class="form-control">
+                                <input type="date" name="from_date" id="from_date" min="<?=date('Y-m-d')?>" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="to_date">To Date:</label>
-                                <input type="date" name="to_date" id="to_date" class="form-control">
+                                <input type="date" name="to_date" id="to_date" min="<?=date('Y-m-d')?>" class="form-control">
                             </div>
                             <button class="btn btn-success btn-block mt-1">Apply Leave</button>
                         </form>
