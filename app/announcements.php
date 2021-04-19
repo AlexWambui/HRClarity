@@ -34,7 +34,7 @@ include_once 'includes/side_navbar.php';
 <div class="main_content">
     <div class="container pt-3">
         <div class="row">
-            <div class="col-lg-8 <?php if($_SESSION['id'] == 2) echo 'col-lg-12' ?>">
+            <div class="col-lg-12">
                 <?php if($_SESSION['id'] == 2): ?>
                     <?= alerts(); ?>
                     <div class="container_header d-flex justify-content-between">
@@ -61,10 +61,10 @@ include_once 'includes/side_navbar.php';
                             <?php if($_SESSION['id'] == 2): ?>
                                 <td>
                                     <div class="row d-flex">
-                                        <a href="update_announcement_form.php?id=<?=$announcement['id']?>" class="btn btn-outline-success btn-sm mr-2"><span class="icon-pencil"></span> Update</a>|
+                                        <a href="update_announcement_form.php?id=<?=$announcement['id']?>" class="btn btn-sm mr-2"><span class="icon-pencil text-info"></span></a>|
                                         <form action="includes/functions.php" method="post" class="form-inline ml-2">
                                             <input type="hidden" name="id" id="id" value="<?= $announcement['id'] ?>">
-                                            <button class="btn btn-outline-danger btn-sm" type="submit" name="delete_announcement"><span class="icon-cancel"></span> Delete</button>
+                                            <button class="btn btn-sm" type="submit" name="delete_announcement"><span class="icon-cancel text-danger"></span></button>
                                         </form>
                                     </div>
                                 </td>
