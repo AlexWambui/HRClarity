@@ -3,4 +3,4 @@ session_start();
 session_destroy();
 //to destroy only one session
 //unset($_SESSION["id"]);
-header('location: ../../index.php');
+header('location: ../login.php');
