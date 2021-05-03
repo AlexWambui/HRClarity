@@ -16,3 +16,8 @@ the DB administrator is able to:
 - add new departments and occupations
 - add new users to the system
 
+# Languages used
+For the User Interface most styling has been done using bootstrap and custom css.
+For backend PHP (procedural) has been used.
+For the DB MySQL has been implemented.
+
