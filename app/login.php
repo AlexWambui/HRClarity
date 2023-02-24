@@ -1,6 +1,6 @@
 <?php
-require_once 'includes/db_connection.php';
-include_once 'includes/functions.php';
+include_once "includes/db_connection.php";
+include_once "includes/functions.php";
 if(isset($_REQUEST['password'])){
     $email = $_REQUEST['email_address'];
     $password = $_REQUEST['password'];

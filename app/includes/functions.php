@@ -1,5 +1,5 @@
 <?php
-require_once 'db_connection.php';
+include_once 'db_connection.php';
 
 function protect_page(){
     session_start();
