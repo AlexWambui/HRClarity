@@ -1,7 +1,6 @@
 <?php
 include_once 'includes/functions.php';
-require_once 'includes/db_connection.php';
-protect_page();
+// protect_page();
 
 if(isset($_POST['add_user'])){
     $first_name = $_REQUEST['first_name'];
@@ -36,9 +35,9 @@ if(isset($_POST['add_user'])){
     header('location: view_users.php');
 }
 
-$sql_fetch_users = "SELECT users.id as user_id, users.first_name, users.last_name, users.gender, users.department_id, departments.dpt_name, occupations.title, occupations.basic_salary, occupations.house_allowance, occupations.medical_allowance FROM users JOIN departments ON users.department_id = departments.id JOIN occupations ON users.occupation_id = occupations.id JOIN user_levels ON users.user_level_id = user_levels.id WHERE user_status= 1 ";
-$fetched_users = mysqli_query($db_conn, $sql_fetch_users) or die( mysqli_error($db_conn) );// executing the query
-$users = mysqli_fetch_all($fetched_users, 1);
+// $sql_fetch_users = "SELECT users.id as user_id, users.first_name, users.last_name, users.gender, users.department_id, departments.dpt_name, occupations.title, occupations.basic_salary, occupations.house_allowance, occupations.medical_allowance FROM users JOIN departments ON users.department_id = departments.id JOIN occupations ON users.occupation_id = occupations.id JOIN user_levels ON users.user_level_id = user_levels.id WHERE user_status= 1 ";
+// $fetched_users = mysqli_query($db_conn, $sql_fetch_users) or die( mysqli_error($db_conn) );// executing the query
+// $users = mysqli_fetch_all($fetched_users, 1);
 ?>
 <!doctype html>
 <html lang="en">
