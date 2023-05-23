@@ -1,0 +1,132 @@
+$theme_color: rgb(111,88,246);
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+@import "authentication";
+@import "sidenavbar";
+@import "dashboard";
+@import "leaves";
+@import "users";
+@import "departments";
+@import "occupations";
+@import "announcements";
+@import "forms";
+
+
+.hero_section{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background: #C33764;  /* fallback colour. Make sure this is just one solid colour. */
+    background: -webkit-linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../images/app_background.jpg");
+    background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../images/app_background.jpg"); /* The least supported option. */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    .hero_text {
+        text-align: center;
+    }
+
+    h1, h2, a {
+        color: #efefef;
+        font-family: Arial, helvetica;
+        font-weight: 700;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        font-style: italic;
+    }
+
+    a {
+        border: 2px solid #efefef;
+        border-radius: 50px;
+        text-decoration: none;
+        padding: 16px 48px;
+        font-size: 1.2rem;
+        color: #efefef;
+        &:hover {
+            text-decoration: none;
+            background: rgba(195, 55, 100, 0.8);
+            border: 2px solid rgba(195, 55, 100, 0.9);
+            color: #efefef;
+            transition: 0.5s ease-in-out;
+            opacity: .8;
+        }
+    }
+}
+
+$main_bg: rgb(255, 255, 255);
+main {
+    margin-left: calc($navbar_width + 2px);
+    background: $main_bg;
+
+    section {
+        padding: 0.2em 1em;
+    }
+}
+
+@media screen and (width <= 900px) {
+    main {
+        margin-left: calc($navbar_width + 6px);
+    }
+}
+
+
+.top_navbar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0.8em 0;
+    margin: 0 0 1em 0;
+
+    h1 {
+        font-size: 1.3em;
+    }
+
+    #myInput {
+        border: 1px solid grey;
+        border-radius: 32px;
+        padding: 4px 12px;
+    }
+
+    .navbar_button {
+        text-align: right;
+    }
+}
+@media screen and (width <= 600px) {
+    .top_navbar {
+        grid-template-columns: 1fr;
+    }
+}
+
+.submit_btn {
+    background: $theme_color;
+}
+
+.action_btn {
+    border-radius: 32px;
+    padding: 4px 16px;
+}
+
+
+
+@media screen and (width <=600px) {
+    form {       
+        .row {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+    }
+}

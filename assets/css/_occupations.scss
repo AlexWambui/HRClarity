@@ -1,0 +1,48 @@
+.Occupations {  
+    .top_navbar {
+        .add_occupation {
+            text-align: right;
+        }
+    }
+
+    .add_occupation_form {
+        width: 70%;
+        margin: 1em auto;
+
+        .header {
+            border-bottom: 1px solid rgb(204, 204, 204);
+
+            h1 {
+                font-size: 1.6em;
+                text-align: center;
+            }
+        }
+
+        .body {
+            padding: 1em 0;
+        }
+    }
+
+    .update_form {
+        width: 70%;
+        margin: auto;
+    }
+}
+
+
+
+@media screen and (width <= 600px) {
+    .Occupations {
+        .top_navbar {
+            gap: 0.5em;
+            .add_occupation {
+                text-align: center;
+                
+                a {
+                    width: 100%;
+                    border-radius: 32px;
+                }
+            }
+        }
+    }
+}

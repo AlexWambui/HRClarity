@@ -1,0 +1,32 @@
+.Departments {
+    .body {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2em;
+
+        .add_department {
+            display: flex;
+            align-items: center;
+            padding: 0 1.2em;
+
+            form {
+                width: 100%;                
+            }
+        }
+    }
+}
+
+
+
+@media screen and (width <= 900px) {
+    .Departments {
+        .body {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        .add_department {
+            order: -1;
+        }
+    }
+}

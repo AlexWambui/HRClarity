@@ -1,0 +1,115 @@
+.Dashboard {
+    padding: unset;
+    
+    .header {
+        height: 30vh;
+        background: linear-gradient(120deg, rgba(0,0,0,0.7), rgba(3, 5, 122, 0.7)), url("../images/app_background.jpg");
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+    }
+
+    .employee_stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+        padding: 0 0.5em;
+
+        div {
+            padding: 1em 1.4em;
+            margin: 1em 0;
+            border: 1px solid #b1b1b1;
+
+            h1 {
+                font-size: 1.5em;
+            }
+            p {
+                margin: unset;
+            }
+        }        
+    }
+
+    .links {
+        margin-top: -2.5em;
+        padding: 0.6em;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1em;
+
+        .link {
+            background: $navbar_bg;
+            color: #fff;
+            padding: 0.5em 1em;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+
+            a {
+                text-decoration: none;
+                color: #fff;
+            }
+
+            .details {
+                h1 {
+                    font-size: 1.7em;
+                }
+                p {
+                    display: grid;
+                    grid-template-columns: auto auto auto;
+                }
+            }
+            .illustration {   
+                display: flex;
+                justify-content: center;             
+                align-items: center;
+                .icon {
+                    font-size: 3em;
+                    opacity: .6;
+                }
+            }
+        }
+    }    
+}
+
+
+
+
+@media screen and (width <= 900px) {
+    .Dashboard {  
+        .header {
+            height: 20vh;
+        }  
+
+        .employee_stats {
+            grid-template-columns: 1fr;
+        }
+
+        .links {        
+            grid-template-columns: repeat(2, 1fr);   
+            padding: 1em;         
+        }
+    }
+}
+
+
+
+@media screen and (width <= 600px) {
+    .Dashboard {
+        font-size: 0.7rem;
+
+        .header {
+            height: 20vh;
+            h1 {
+                font-size: 1.9em;
+            }
+        }  
+            
+        .links {        
+            grid-template-columns: 1fr;   
+            padding: 1em;         
+        }
+    }
+}

@@ -1,0 +1,64 @@
+.Authentication {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    
+    .container {
+        width: 30%;
+        padding: 1em;
+        border-radius: 16px;
+        box-shadow: 6px 6px 12px rgb(141, 141, 141);
+
+        .header {
+            margin: 0 0 1.5em 0;
+
+            h1 {
+                font: {
+                    size: 1.5em;
+                    weight: bold;
+                }
+                text-align: center;
+            }
+        }
+
+        .body {
+            form {
+                input,
+                button {
+                    border-radius: 32px;
+                }                
+                p {
+                    margin: 0.5em 0 0.15em;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .signup_form_card {
+        width: 60%;
+
+        .body {
+            form {
+                input {
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+}
+
+
+
+@media screen and (width <= 600px) {
+    .Authentication {
+
+        .container {
+            width: 80%;
+        }
+
+        .signup_form_card {
+            width: 80%;
+        }
+    }
+}

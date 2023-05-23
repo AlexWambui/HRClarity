@@ -1,0 +1,19 @@
+.Leaves {
+    .header {
+        display: flex;
+        justify-content: space-between;
+
+        h1 {
+            font-size: 1.8em;
+        }
+    }
+
+    .displayed_leaves {
+        margin: 1em 0;
+    }    
+
+    .leave_form {
+        width: 85%;
+        margin: auto;
+    }
+}

@@ -1,0 +1,121 @@
+.Users {
+    .users_wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1em;
+
+        .user { 
+            box-shadow: 4px 2px 4px #5a5a5a;
+            border: 1px solid rgb(211, 211, 211);
+            border-radius: 12px;
+            background: rgb(248,249,251);
+            padding: 0.3em 0.8em 0.5em;
+            &:hover {
+                transform: scale(1.01);
+                transition: transform 0.3s ease-in;
+            }
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 4px;
+                margin: 0 0 0.5em;
+                .user_status {
+                    $color: green;
+                    border: 1px solid $color;
+                    color: $color;
+                    padding: 0px 6px;
+                    font-weight: bold;
+                }
+                .inactive {
+                    $color: red;
+                    border: 1px solid $color;
+                    color: $color;
+                }
+            }
+
+            .body {
+                .personal_info {
+                    display: flex;
+                    gap: 1.2em;
+
+                    .profile_pic {
+                        img {
+                            width: 50px;
+                            aspect-ratio: 1;
+                            border-radius: 50%;
+                        }
+                    }
+                    .details {
+                        h1 {
+                            font-size: 1.1em;
+                            font-weight: bold;
+                            margin: 0.2em 0 0.07em;
+                        }
+                        p {
+                            opacity: .8;
+                            font-weight: 600;
+                            color: $theme_color;
+                        }
+                    }
+                }
+
+                .more_details {
+                    .info {
+                        p {
+                            margin: 0 0 0.4em;                            
+                        }
+                    }
+
+                    .contacts {
+                        p {
+                            margin: unset;
+                        }
+                    }
+                }                
+            }
+        }
+    }
+
+    .update_form {
+        width: 85%;
+        margin: 0 auto;
+        padding: 1em;
+        border-radius: 12px;
+        box-shadow: 6px 6px 12px rgb(177, 177, 177);
+
+        .header {
+            border-bottom: 1px solid rgb(204, 204, 204);
+
+            h1 {
+                font-size: 1.6em;
+                text-align: center;
+            }
+        }
+
+        .body {
+            padding: 1em 0;            
+        }
+    }
+}
+
+
+
+@media screen and (width <= 900px) {
+    .Users {
+        .users_wrapper {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+
+
+@media screen and (width <= 600px) {
+    .Users {
+        .users_wrapper {
+            grid-template-columns: 1fr;
+        }
+    }
+}

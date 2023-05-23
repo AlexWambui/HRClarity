@@ -1,164 +1,520 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-.bg_orange{
-    background: #008b8b;
-    color: #e9ecef;
-}
-.bg_dark_cyan{
-    background: #C1E2DA;
-    color: #343a40;
-}
-.bg_purple{
-    background: #9471d9;
-    color: #e9ecef;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.top_nav,
-.side_nav_bar{
-    background: #28a745;
-    color: #efefef;
+.Authentication {
+  height: 100vh;
+  display: grid;
+  place-items: center;
 }
-.top_nav a,
-.side_nav_bar a{
-    color: #efefef;
+.Authentication .container {
+  width: 30%;
+  padding: 1em;
+  border-radius: 16px;
+  box-shadow: 6px 6px 12px rgb(141, 141, 141);
 }
-/*top_navbar*/
-.top_nav{
-    position: sticky;
-    top: 0;
-    z-index: 10;
+.Authentication .container .header {
+  margin: 0 0 1.5em 0;
 }
-.logo{
-    padding-left: 4%;
+.Authentication .container .header h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
 }
-.logo img{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+.Authentication .container .body form input,
+.Authentication .container .body form button {
+  border-radius: 32px;
 }
-.app_name{
-    font-size: 1rem;
-    line-height: inherit;
+.Authentication .container .body form p {
+  margin: 0.5em 0 0.15em;
+  text-align: center;
 }
-
-/* side_bar */
-.side_nav_bar{
-    height: 100%;
-    padding-top: 10px;
-    position: fixed;
-    display:block;
-    width: 14%;
+.Authentication .signup_form_card {
+  width: 60%;
 }
-.side_nav_bar .nav_links{
-    list-style: none;
-    padding-left: 6px;
-}
-.side_nav_bar a{
-    text-decoration: none;
-    font-size: 1rem;
-    display:block;
-}
-.side_nav_bar .nav_links .nav_items{
-    width: 90%;
-}
-.side_nav_bar a:hover,
-.side_nav_dropdown:hover{
-    color: #b1d7c9;
-}
-.side_nav_bar .nav_links .nav_items,
-.side_nav_dropdown{
-    color: #efefef;
-    padding-left: 4px;
-    margin-top: 5px;
-    border-bottom: 1px solid #efefef;
-}
-.side_nav_dropdown{
-    text-decoration: none;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    outline: none;
-}
-.side_nav_dropdown:focus{
-    outline: none;
-    border: none;
-}
-.active {
-    color: white;
+.Authentication .signup_form_card .body form input {
+  border-radius: 8px;
 }
 
-/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
-.side_nav_dropdown_container {
+@media screen and (width <= 600px) {
+  .Authentication .container {
+    width: 80%;
+  }
+  .Authentication .signup_form_card {
+    width: 80%;
+  }
+}
+.side_navbar {
+  background: rgb(7, 5, 20);
+  color: white;
+  width: 14%;
+  border-right: 1px solid rgb(85, 85, 85);
+  height: 100vh;
+  padding: 1em 0.2em;
+  position: fixed;
+  display: grid;
+  grid-template-rows: 1fr 6fr 1fr;
+}
+.side_navbar .header h1 {
+  font-size: 1.6em;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+}
+.side_navbar ul {
+  list-style: none;
+  padding: 0 0.5em;
+}
+.side_navbar ul li {
+  margin: 0.5em 0px;
+}
+.side_navbar ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+.side_navbar .footer {
+  text-align: center;
+}
+.side_navbar .footer li img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.side_navbar .footer li .verified {
+  border: 3px solid yellowgreen;
+}
+.side_navbar .footer li .unverified {
+  border: 3px solid red;
+}
+.side_navbar .footer li form button {
+  font-weight: bold;
+  background: rgb(128, 3, 3);
+  color: rgb(248, 235, 235);
+}
+
+@media screen and (width <= 900px) {
+  .side_navbar {
+    width: 16%;
+    font-size: 0.9rem;
+  }
+}
+@media screen and (width <= 600px) {
+  .side_navbar .header {
     display: none;
-    background-color: #262626;
-    padding-left: 8px;
+  }
+  .side_navbar ul {
+    text-align: center;
+  }
+  .side_navbar ul li a span:nth-of-type(2) {
+    display: none;
+  }
+  .side_navbar .footer {
+    font-size: 0.7rem;
+    text-align: left;
+    padding: auto 0;
+  }
+  .side_navbar .footer li:nth-of-type(1) {
+    display: none;
+  }
+}
+.Dashboard {
+  padding: unset;
+}
+.Dashboard .header {
+  height: 30vh;
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.7), rgba(3, 5, 122, 0.7)), url("../images/app_background.jpg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.Dashboard .employee_stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+  padding: 0 0.5em;
+}
+.Dashboard .employee_stats div {
+  padding: 1em 1.4em;
+  margin: 1em 0;
+  border: 1px solid #b1b1b1;
+}
+.Dashboard .employee_stats div h1 {
+  font-size: 1.5em;
+}
+.Dashboard .employee_stats div p {
+  margin: unset;
+}
+.Dashboard .links {
+  margin-top: -2.5em;
+  padding: 0.6em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+}
+.Dashboard .links .link {
+  background: rgb(7, 5, 20);
+  color: #fff;
+  padding: 0.5em 1em;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.Dashboard .links .link a {
+  text-decoration: none;
+  color: #fff;
+}
+.Dashboard .links .link .details h1 {
+  font-size: 1.7em;
+}
+.Dashboard .links .link .details p {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.Dashboard .links .link .illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Dashboard .links .link .illustration .icon {
+  font-size: 3em;
+  opacity: 0.6;
 }
 
-
-/*main_content*/
-.main_content{
-    width: 85%;
-    margin-left: 14.3%;
+@media screen and (width <= 900px) {
+  .Dashboard .header {
+    height: 20vh;
+  }
+  .Dashboard .employee_stats {
+    grid-template-columns: 1fr;
+  }
+  .Dashboard .links {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1em;
+  }
+}
+@media screen and (width <= 600px) {
+  .Dashboard {
+    font-size: 0.7rem;
+  }
+  .Dashboard .header {
+    height: 20vh;
+  }
+  .Dashboard .header h1 {
+    font-size: 1.9em;
+  }
+  .Dashboard .links {
+    grid-template-columns: 1fr;
+    padding: 1em;
+  }
+}
+.Leaves .header {
+  display: flex;
+  justify-content: space-between;
+}
+.Leaves .header h1 {
+  font-size: 1.8em;
+}
+.Leaves .displayed_leaves {
+  margin: 1em 0;
+}
+.Leaves .leave_form {
+  width: 85%;
+  margin: auto;
 }
 
-.icon_print_payslip{
-    font-size: 40px;
+.Users .users_wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}
+.Users .users_wrapper .user {
+  box-shadow: 4px 2px 4px #5a5a5a;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 12px;
+  background: rgb(248, 249, 251);
+  padding: 0.3em 0.8em 0.5em;
+}
+.Users .users_wrapper .user:hover {
+  transform: scale(1.01);
+  transition: transform 0.3s ease-in;
+}
+.Users .users_wrapper .user .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+  margin: 0 0 0.5em;
+}
+.Users .users_wrapper .user .header .user_status {
+  border: 1px solid green;
+  color: green;
+  padding: 0px 6px;
+  font-weight: bold;
+}
+.Users .users_wrapper .user .header .inactive {
+  border: 1px solid red;
+  color: red;
+}
+.Users .users_wrapper .user .body .personal_info {
+  display: flex;
+  gap: 1.2em;
+}
+.Users .users_wrapper .user .body .personal_info .profile_pic img {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.Users .users_wrapper .user .body .personal_info .details h1 {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0.2em 0 0.07em;
+}
+.Users .users_wrapper .user .body .personal_info .details p {
+  opacity: 0.8;
+  font-weight: 600;
+  color: rgb(111, 88, 246);
+}
+.Users .users_wrapper .user .body .more_details .info p {
+  margin: 0 0 0.4em;
+}
+.Users .users_wrapper .user .body .more_details .contacts p {
+  margin: unset;
+}
+.Users .update_form {
+  width: 85%;
+  margin: 0 auto;
+  padding: 1em;
+  border-radius: 12px;
+  box-shadow: 6px 6px 12px rgb(177, 177, 177);
+}
+.Users .update_form .header {
+  border-bottom: 1px solid rgb(204, 204, 204);
+}
+.Users .update_form .header h1 {
+  font-size: 1.6em;
+  text-align: center;
+}
+.Users .update_form .body {
+  padding: 1em 0;
 }
 
-
-.hero_section{
-    height: 100vh;
-    max-width: 100vw;
-    background: black;
-    overflow: hidden;
-    background: #C33764;  /* fallback colour. Make sure this is just one solid colour. */
-    background: -webkit-linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../images/sentrifugo-an-open-source-human-resource-management-system-maine-pegas-tech-solution-1.jpg");
-    background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../images/sentrifugo-an-open-source-human-resource-management-system-maine-pegas-tech-solution-1.jpg"); /* The least supported option. */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+@media screen and (width <= 900px) {
+  .Users .users_wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (width <= 600px) {
+  .Users .users_wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+.Departments .body {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2em;
+}
+.Departments .body .add_department {
+  display: flex;
+  align-items: center;
+  padding: 0 1.2em;
+}
+.Departments .body .add_department form {
+  width: 100%;
 }
 
-.hero_text h1, h2, a{
-    color: #efefef;
-    font-family: Arial, helvetica;
-    font-weight: 700;
+@media screen and (width <= 900px) {
+  .Departments .body {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .Departments .add_department {
+    order: -1;
+  }
 }
-.hero_text h1, h2{
-    font-size: 2.5rem;
+.Occupations .top_navbar .add_occupation {
+  text-align: right;
 }
-.hero_text a{
-    border: 2px solid #efefef;
-    border-radius: 50px;
-    text-decoration: none;
-    padding: 16px 48px;
-    margin-left: 35%;
-    font-size: 1.2rem;
-    color: yellow;
+.Occupations .add_occupation_form {
+  width: 70%;
+  margin: 1em auto;
 }
-.hero_text a:hover{
-    text-decoration: none;
-    background: rgba(195, 55, 100, 0.8);
-    border: 2px solid rgba(195, 55, 100, 0.9);
-    color: #efefef;
-    transition: 0.5s ease-in-out;
-    opacity: .8;
+.Occupations .add_occupation_form .header {
+  border-bottom: 1px solid rgb(204, 204, 204);
 }
-.login_page{
-    background: black;
-    overflow: hidden;
-    background: #C33764;  /* fallback colour. Make sure this is just one solid colour. */
-    background: -webkit-linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../images/sentrifugo-an-open-source-human-resource-management-system-maine-pegas-tech-solution-1.jpg");
-    background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../images/sentrifugo-an-open-source-human-resource-management-system-maine-pegas-tech-solution-1.jpg"); /* The least supported option. */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+.Occupations .add_occupation_form .header h1 {
+  font-size: 1.6em;
+  text-align: center;
 }
-.login_container{
-    padding-top: 10%;
+.Occupations .add_occupation_form .body {
+  padding: 1em 0;
 }
+.Occupations .update_form {
+  width: 70%;
+  margin: auto;
+}
+
+@media screen and (width <= 600px) {
+  .Occupations .top_navbar {
+    gap: 0.5em;
+  }
+  .Occupations .top_navbar .add_occupation {
+    text-align: center;
+  }
+  .Occupations .top_navbar .add_occupation a {
+    width: 100%;
+    border-radius: 32px;
+  }
+}
+.Announcements .announcements_wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+}
+.Announcements .announcements_wrapper .announcement {
+  border: 1px solid rgb(170, 170, 170);
+  border-radius: 32px;
+  padding: 1em;
+}
+.Announcements .announcements_wrapper .announcement .header {
+  display: grid;
+  grid-template-columns: 3fr auto auto;
+  align-items: center;
+  border-bottom: 1px solid grey;
+}
+.Announcements .announcements_wrapper .announcement .header h1 {
+  font-size: 1.4em;
+}
+.Announcements .announcements_wrapper .announcement .header .actions {
+  display: flex;
+  justify-content: space-evenly;
+}
+.Announcements .announcements_wrapper .announcement .body {
+  margin: 0.5em auto 0;
+}
+.Announcements .announcements_wrapper .announcement .body p {
+  opacity: 0.9;
+}
+.Announcements .announcements_wrapper .expired {
+  border: 2px solid red;
+}
+
+.popupform_wrapper {
+  display: none;
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.form .header h1 {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(187, 187, 187);
+}
+.form .body form .form-group {
+  margin: 0.3em auto;
+}
+.form .body form .form-group label {
+  margin: 0.2em auto;
+}
+
+.hero_section {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #C33764; /* fallback colour. Make sure this is just one solid colour. */
+  background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../images/app_background.jpg"); /* The least supported option. */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.hero_section .hero_text {
+  text-align: center;
+}
+.hero_section h1, .hero_section h2, .hero_section a {
+  color: #efefef;
+  font-family: Arial, helvetica;
+  font-weight: 700;
+}
+.hero_section h1 {
+  font-size: 2.5rem;
+}
+.hero_section h2 {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+.hero_section a {
+  border: 2px solid #efefef;
+  border-radius: 50px;
+  text-decoration: none;
+  padding: 16px 48px;
+  font-size: 1.2rem;
+  color: #efefef;
+}
+.hero_section a:hover {
+  text-decoration: none;
+  background: rgba(195, 55, 100, 0.8);
+  border: 2px solid rgba(195, 55, 100, 0.9);
+  color: #efefef;
+  transition: 0.5s ease-in-out;
+  opacity: 0.8;
+}
+
+main {
+  margin-left: calc(14% + 2px);
+  background: rgb(255, 255, 255);
+}
+main section {
+  padding: 0.2em 1em;
+}
+
+@media screen and (width <= 900px) {
+  main {
+    margin-left: calc(14% + 6px);
+  }
+}
+.top_navbar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0.8em 0;
+  margin: 0 0 1em 0;
+}
+.top_navbar h1 {
+  font-size: 1.3em;
+}
+.top_navbar #myInput {
+  border: 1px solid grey;
+  border-radius: 32px;
+  padding: 4px 12px;
+}
+.top_navbar .navbar_button {
+  text-align: right;
+}
+
+@media screen and (width <= 600px) {
+  .top_navbar {
+    grid-template-columns: 1fr;
+  }
+}
+.submit_btn {
+  background: rgb(111, 88, 246);
+}
+
+.action_btn {
+  border-radius: 32px;
+  padding: 4px 16px;
+}
+
+@media screen and (width <= 600px) {
+  form .row {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}/*# sourceMappingURL=styles.css.map */
