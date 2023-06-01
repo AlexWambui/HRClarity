@@ -52,20 +52,18 @@
   width: 14%;
   border-right: 1px solid rgb(85, 85, 85);
   height: 100vh;
-  padding: 1em 0.2em;
+  padding: 1em 0.8em;
   position: fixed;
   display: grid;
   grid-template-rows: 1fr 6fr 1fr;
 }
 .side_navbar .header h1 {
-  font-size: 1.6em;
-  text-align: center;
+  font-size: 1.4em;
   font-weight: bold;
   letter-spacing: 0.2px;
 }
 .side_navbar ul {
   list-style: none;
-  padding: 0 0.5em;
 }
 .side_navbar ul li {
   margin: 0.5em 0px;

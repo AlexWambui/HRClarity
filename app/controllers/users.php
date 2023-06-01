@@ -150,7 +150,6 @@ function update_profile()
             password = '$password' 
         WHERE id = $id 
     ";
-    var_dump($sql_update_user);
     mysqli_query($db_connection, $sql_update_user) or die(mysqli_error($db_connection));
     setcookie('message', "Your profile was updated", time()+3);
     header('location: ./dashboard.php');
