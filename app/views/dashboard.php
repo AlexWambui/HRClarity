@@ -17,20 +17,24 @@ navbar();
 
         <?php if ($_SESSION['user_level'] == 1) : ?>
             <div class="employee_stats">
-                <div class="leaves">
-                    <h1>You have made <?= count_user_leaves() ?> leave requests.</h1>
-                    <p>
-                        <span>Pending: <?= count_user_pending_leaves() ?></span>
-                    </p>
-                </div>
-                <div class="announcements">
-                    <h1>
-                        <?php
-                        if (count_announcements() == 0) echo "There's no announcements.";
-                        else echo "You have " . count_announcements() . " Announcements";
-                        ?>
-                    </h1>
-                </div>
+                <a href="./leaves.php">
+                    <div class="leaves">
+                        <h1>You have made <?= count_user_leaves() ?> leave requests.</h1>
+                        <p>
+                            <span>Pending: <?= count_user_pending_leaves() ?></span>
+                        </p>
+                    </div>
+                </a>
+                <a href="./announcements.php">
+                    <div class="announcements">
+                        <h1>
+                            <?php
+                            if (count_announcements() == 0) echo "There's no announcements.";
+                            else echo "You have " . count_announcements() . " Announcements";
+                            ?>
+                        </h1>
+                    </div>
+                </a>
             </div>
         <?php endif; ?>
 

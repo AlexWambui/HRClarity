@@ -42,15 +42,19 @@ function navbar()
             </ul>
             <ul class="footer">  
                 <li>
-                <a href="update_profile.php?id=<?=$_SESSION['user_id']?>" class="btn btn-sm mr-2">
-                    <img 
-                        src="<?= $_SESSION["user_profile_picture"] ?>" 
-                        alt="Profile Picture"
-                        class="<?php if($_SESSION['user_status'] == 1) echo "verified"; else echo "unverified" ?>"
-                    />
+                    <a href="update_profile.php?id=<?=$_SESSION['user_id']?>" class="btn btn-sm mr-2">
+                        <img 
+                            src="<?= $_SESSION["user_profile_picture"] ?>" 
+                            alt="Profile Picture"
+                            class="<?php if($_SESSION['user_status'] == 1) echo "verified"; else echo "unverified" ?>"
+                        />
                     </a>
                 </li>   
-                <li><?= $_SESSION['user_first_name'].' '.$_SESSION['user_last_name'] ?></li>
+                <li>        
+                    <a href="update_profile.php?id=<?=$_SESSION['user_id']?>" class="btn btn-sm mr-2">            
+                        <?= $_SESSION['user_first_name'].' '.$_SESSION['user_last_name'] ?>
+                    </a>
+                </li>
                 <li>
                     <form action="../controllers/auth.php" method="post">
                         <button type="submit" class="btn btn-danger action_btn" name="logout">

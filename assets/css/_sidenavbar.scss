@@ -72,16 +72,20 @@ $navbar_bg: rgb(7,5,20);
 
 @media screen and (width <= 600px) {
     .side_navbar {
+        width: 25%;
+
         .header {
             display: none;
         }
 
-        ul {
-            text-align: center;
+        ul {            
             li {
                 a {
+                    display: flex;
+                    flex-direction: column;
                     span:nth-of-type(2){
-                        display: none;
+                        font-size: 0.8em;
+                        overflow: hidden;
                     }
                 }
             }
@@ -93,7 +97,19 @@ $navbar_bg: rgb(7,5,20);
             padding: auto 0;
 
             li:nth-of-type(1) {
-                display: none;
+                display: none;                
+            }
+
+            li {                
+                form {
+                    button {
+                        background: none;
+                        border: none;
+                        text-align: left;
+                        margin: 1em 0px;
+                        padding: 0px;
+                    }
+                }
             }
         }
     }

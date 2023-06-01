@@ -22,7 +22,7 @@ function fetch_announcements()
 {
     global $db_connection;
 
-    $sql = "SELECT * FROM announcements ORDER BY start_date ASC";
+    $sql = "SELECT * FROM announcements WHERE end_date >= CURDATE() ORDER BY start_date ASC";
     $announcements = mysqli_query($db_connection, $sql) or die(mysqli_error($db_connection));
     $announcements = mysqli_fetch_all($announcements, 1);
 

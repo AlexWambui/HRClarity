@@ -19,11 +19,15 @@
         gap: 1em;
         padding: 0 0.5em;
 
-        div {
-            padding: 1em 1.4em;
-            margin: 1em 0;
+        a {
+            text-decoration: none;
+            color: #fff;
             border: 1px solid #b1b1b1;
+            margin: 1em 0;            
+            padding: 0.5em 1.4em;            
+        }
 
+        div {                        
             h1 {
                 font-size: 1.5em;
             }

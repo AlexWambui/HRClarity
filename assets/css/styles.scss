@@ -79,6 +79,8 @@ main {
 }
 
 @media screen and (width <= 900px) {
+    $navbar_width: 25%;
+    
     main {
         margin-left: calc($navbar_width + 6px);
     }
