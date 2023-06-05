@@ -10,6 +10,15 @@ function ensure_user_logged_in()
     }
 }
 
+function admin_page()
+{
+    session_start();
+    if ($_SESSION['user_level'] < 2) 
+    {
+        header("location: ./dashboard.php");
+    }
+}
+
 function alerts(){
     if(isset($_COOKIE['error'])): ?>
         <div id="notification" class="alert alert-danger alert-dismissible fade show" role="alert">

@@ -152,7 +152,8 @@ function update_profile()
     ";
     mysqli_query($db_connection, $sql_update_user) or die(mysqli_error($db_connection));
     setcookie('message', "Your profile was updated", time()+3);
-    header('location: ./dashboard.php');
+    session_destroy();
+    header('location: ./login.php');
 }
 if(isset($_POST['update_profile'])) update_profile();
 

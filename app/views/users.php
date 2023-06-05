@@ -1,5 +1,6 @@
 <?php       
-    include_once "../controllers/users.php";   
+    include_once "../controllers/users.php"; 
+    admin_page();
 
     start_html("Employees");   
     navbar(); 
