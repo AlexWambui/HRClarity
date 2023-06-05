@@ -28,27 +28,3 @@
     </div>
 </section>
 <?php end_html() ?>
-
-<!--
-TODO
-  *enhance the look on the dashboards ✔
-  *make add and view employees one page instead of two diff pages ✔
-  *make update and delete pages one page for occupations and departments
-  *do reports for admin and hr all employees in the org (names, email, phone, department, occupation, net-income)
-  ------------------------------------------------------------------------------------------
-  -- users side --
-  1. enable users to apply for leaves ✔
-  2. users can view their work details (dpt, occupation, responsibilities, hod, salaries) ✔
-  3. users can view announcements made by hr_manager ✔
-  * add the page for archived users ✔
-  ------------------------------------------------------------------------------------------
-  -- hr_manager's side --
-  1. enable hr_manager accept or reject leaves ✔
-  2. hr can make announcements ✔
-  3. hr can update or delete announcements ✔
-  4. hr can add, update or delete recruitments ✔
-  ------------------------------------------------------------------------------------------
-  --admin's side --
-  1. update and delete occupations and dpts should work without being affected by the relationships.
-  ------------------------------------------------------------------------------------------
--->
