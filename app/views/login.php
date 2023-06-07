@@ -12,7 +12,7 @@
 
         <div class="body">
             <?= alerts() ?>
-            <form action="./login.php" method="post" autocomplete="off">
+            <form action="./login.php" method="post">
                 <div class="form-group">
                     <input type="text" name="email_address" id="email_address" class="form-control" placeholder="Email Address" autofocus required>
                 </div>
