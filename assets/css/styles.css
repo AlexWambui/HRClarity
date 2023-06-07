@@ -4,6 +4,129 @@
   box-sizing: border-box;
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7em 2em;
+}
+nav a {
+  text-decoration: none;
+  color: black;
+}
+nav a:hover {
+  color: rgb(0, 189, 252);
+  text-decoration: none;
+}
+nav .nav_links ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  -moz-column-gap: 2em;
+       column-gap: 2em;
+  margin: 0;
+}
+
+.hero_section {
+  height: 90vh;
+  width: 100%;
+  overflow: hidden;
+  background: #C33764; /* fallback colour. Make sure this is just one solid colour. */
+  background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../images/app_background.jpg"); /* The least supported option. */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.hero_section .hero_text {
+  text-align: center;
+}
+.hero_section h1, .hero_section h2, .hero_section a {
+  color: #efefef;
+  font-family: Arial, helvetica;
+  font-weight: 700;
+}
+.hero_section h1 {
+  font-size: 2.5rem;
+}
+.hero_section h2 {
+  font-size: 1.5rem;
+  font-style: italic;
+}
+.hero_section a {
+  border: 2px solid #efefef;
+  border-radius: 50px;
+  text-decoration: none;
+  padding: 16px 48px;
+  font-size: 1.2rem;
+  color: #efefef;
+}
+.hero_section a:hover {
+  text-decoration: none;
+  background: rgba(195, 55, 100, 0.8);
+  border: 2px solid rgba(195, 55, 100, 0.9);
+  color: #efefef;
+  transition: 0.5s ease-in-out;
+  opacity: 0.8;
+}
+
+.Features {
+  padding: 2em 2.5em;
+}
+.Features .feature {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2em;
+  margin: 0 0 3em;
+}
+.Features .feature .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.Features .feature .image img {
+  width: 100%;
+}
+.Features .feature:nth-of-type(2) {
+  grid-template-columns: 2fr 1fr;
+}
+.Features .feature:nth-of-type(2) .image {
+  order: -1;
+}
+
+.About {
+  padding: 1em 2.5em;
+}
+.About ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5em;
+}
+.About ul li a {
+  font-size: 1.8em;
+}
+.About .inspiration {
+  margin: 0 0 3em;
+}
+.About .inspiration p {
+  margin: 4px 0;
+}
+.About .socials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+footer {
+  background: #000;
+  color: #fff;
+  padding: 1em 0;
+  text-align: center;
+}
+footer p {
+  margin: unset;
+}
+
 .Authentication {
   height: 100vh;
   display: grid;
@@ -325,18 +448,18 @@
     grid-template-columns: 1fr;
   }
 }
-.Departments .body {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2em;
-}
 .Departments .body .add_department {
-  display: flex;
-  align-items: center;
-  padding: 0 1.2em;
+  padding: 0 1em;
+  margin: 0 0 1.5em;
 }
 .Departments .body .add_department form {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1em;
   width: 100%;
+}
+.Departments .body .add_department form button {
+  margin: 0;
 }
 
 @media screen and (width <= 900px) {
@@ -434,49 +557,6 @@
 }
 .form .body form .form-group label {
   margin: 0.2em auto;
-}
-
-.hero_section {
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  background: #C33764; /* fallback colour. Make sure this is just one solid colour. */
-  background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("../images/app_background.jpg"); /* The least supported option. */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-.hero_section .hero_text {
-  text-align: center;
-}
-.hero_section h1, .hero_section h2, .hero_section a {
-  color: #efefef;
-  font-family: Arial, helvetica;
-  font-weight: 700;
-}
-.hero_section h1 {
-  font-size: 2.5rem;
-}
-.hero_section h2 {
-  font-size: 1.5rem;
-  font-style: italic;
-}
-.hero_section a {
-  border: 2px solid #efefef;
-  border-radius: 50px;
-  text-decoration: none;
-  padding: 16px 48px;
-  font-size: 1.2rem;
-  color: #efefef;
-}
-.hero_section a:hover {
-  text-decoration: none;
-  background: rgba(195, 55, 100, 0.8);
-  border: 2px solid rgba(195, 55, 100, 0.9);
-  color: #efefef;
-  transition: 0.5s ease-in-out;
-  opacity: 0.8;
 }
 
 main {
