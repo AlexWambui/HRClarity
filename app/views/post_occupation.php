@@ -1,8 +1,8 @@
-<?php       
-    include_once "../controllers/occupations.php";   
+<?php
+include_once "../controllers/occupations.php";
 
-    start_html("Add Occupation");   
-    navbar(); 
+start_html("Add Occupation");
+navbar();
 ?>
 
 <main>
@@ -12,7 +12,7 @@
                 <h1>Add Occupation</h1>
             </div>
             <div class="body">
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">    
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
@@ -53,7 +53,14 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-success btn-block mt-1 submit_btn" name="post_occupation">Add Occupation</button>                                                      
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-success btn-block mt-1 submit_btn" name="post_occupation">Add Occupation</button>
+                        </div>
+                        <div class="col">
+                            <a class="btn btn-danger btn-block mt-1" href="./occupations.php">Cancel</a>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
