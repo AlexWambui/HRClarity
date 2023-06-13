@@ -13,7 +13,7 @@ navbar();
                 <h1>Update</h1>
             </div>
             <div class="body">
-                <?php foreach (fetch_user() as $user) : ?>
+                <?php foreach (fetch_user($_REQUEST['id']) as $user) : ?>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data" autocomplete="off">
                         <input type="hidden" name="id" id="id" value="<?= $user['user_id'] ?>">
                         <div class="row">
@@ -96,9 +96,9 @@ navbar();
                                         <option value="<?= $user['occupation_id'] ?>">
                                             <?php
                                             if ($user['occupation_id'] == NULL) echo "undefined";
-                                            else echo $user['occupation_id'];
+                                            else echo $user['occupation_name'];
                                             ?>
-                                        </option>
+                                        </option>                                        
                                         <?= select_update_occupation($user['occupation_id']) ?>
                                     </select>
                                 </div>

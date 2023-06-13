@@ -13,7 +13,7 @@ navbar();
                 <h1>Update</h1>
             </div>
             <div class="body">
-                <?php foreach (fetch_user() as $user) : ?>
+                <?php foreach (fetch_user($_REQUEST['id']) as $user) : ?>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data" autocomplete="off">
                         <input type="hidden" name="id" id="id" value="<?= $user['user_id'] ?>">
                         <div class="row">

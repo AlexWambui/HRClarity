@@ -50,11 +50,11 @@ function fetch_active_users()
     return $fetched_users;
 }
 
-function fetch_user() 
+function fetch_user($id) 
 {
     global $db_connection;
     
-    $id = $_REQUEST['id'];
+    $id = $id;
     $sql_fetch_user = "SELECT             
             users.id as user_id, 
             users.first_name, 
